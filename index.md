@@ -6,7 +6,7 @@ title: Home
 <div class="hero-banner">
   <h2>Discover Unique, Original Art Pieces by JFeelgood</h2>
   <p>Elevate your space with one-of-a-kind creations.</p>
-  <a class="cta-button" href="/shop.md">Explore Gallery</a>
+  <a class="cta-button" href="shop.md">Explore Gallery</a>
 </div>
 
 <img src="assets/images/JFeelgood_portrait2.jpg" alt="Portrait_of_JFeelgood_01" style="max-width:200px;border-radius:12px;float:center;margin:0 1em 1em 0;" />
