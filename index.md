@@ -9,6 +9,9 @@ title: Home
   <a class="cta-button" href="/shop.md">Explore Gallery</a>
 </div>
 
+<img src="assets/images/JFeelgood_portrait2.jpg" alt="Portrait_of_JFeelgood_01" style="max-width:200px;border-radius:12px;float:center;margin:0 1em 1em 0;" />
+
+
 ## Featured Work
 
 <div class="gallery-grid">
