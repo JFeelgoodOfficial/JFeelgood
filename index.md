@@ -43,16 +43,14 @@ permalink: /
   <div style="clear:both;"></div>
 </section>
 
-<!-- FEATURED WORK SECTION -->
 <section id="featured">
   <h2>Featured Work</h2>
   <div class="gallery-grid-featured">
-    <!-- Dynamically render all 153 images -->
     {% for i in (1..153) %}
       {% assign num = i | prepend: "000" | slice: -3, 3 %}
       <div class="featured-artwork-card">
         <img 
-          src="/assets/images/JFeelgoodArt{{ num }}.jpg" 
+          src="{{ site.baseurl }}/assets/images/JFeelgoodArt{{ num }}.jpg" 
           alt="JFeelgoodArt{{ num }}" 
           loading="lazy"
         />
@@ -60,7 +58,6 @@ permalink: /
     {% endfor %}
   </div>
 </section>
-
 
 
 <style>
