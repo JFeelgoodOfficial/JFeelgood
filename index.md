@@ -3,7 +3,15 @@ layout: default
 title: JFeelgood Studio
 permalink: /
 ---
-
+<!-- Navigation with anchor links to sections -->
+<nav class="landing-nav">
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#featured">Featured Work</a></li>
+  
+  </ul>
+</nav>
 
 
 <!-- HERO SECTION -->
