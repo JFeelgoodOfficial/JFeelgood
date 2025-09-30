@@ -10,8 +10,6 @@ permalink: /
     <li><a href="#hero">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#featured">Featured Work</a></li>
-    <li><a href="#gallery">Gallery & Shop</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -64,27 +62,7 @@ permalink: /
   </div>
 </section>
 
-<!-- GALLERY & SHOP SECTION -->
-<section id="gallery">
-  <h2>Gallery & Shop</h2>
-  <div class="gallery-grid">
-    <div class="artwork-card">
-      <img src="/assets/images/art01.jpg" alt="Art Title 1" />
-      <h3>Art Title 1</h3>
-      <p>Medium · Year</p>
-      <p>$350</p>
-      <a class="cta-button" href="mailto:artist@email.com?subject=Art Purchase: Art Title 1">Purchase</a>
-    </div>
-    <div class="artwork-card">
-      <img src="/assets/images/art02.jpg" alt="Art Title 2" />
-      <h3>Art Title 2</h3>
-      <p>Medium · Year</p>
-      <p>$225</p>
-      <a class="cta-button" href="mailto:artist@email.com?subject=Art Purchase: Art Title 2">Purchase</a>
-    </div>
-    <!-- Add more artwork cards as needed -->
-  </div>
-</section>
+
 
 <style>
 .landing-nav {
