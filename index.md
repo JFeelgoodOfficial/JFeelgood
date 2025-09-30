@@ -10,8 +10,6 @@ permalink: /
     <li><a href="#hero">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#featured">Featured Work</a></li>
-    <li><a href="#gallery">Gallery & Shop</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -19,7 +17,7 @@ permalink: /
 <section id="hero" class="hero-banner" style="padding-top:4em;">
   <h2>Discover Unique, Original Art Pieces by JFeelgood</h2>
   <p>Elevate your space with one-of-a-kind creations.</p>
-  <a class="cta-button" href="#gallery">Explore Gallery</a>
+  <a class="cta-button" href="#featured">Explore Gallery</a>
   <img src="assets/images/JFeelgood_portrait2.jpg" 
      alt="Portrait_of_JFeelgood_02" 
      style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
@@ -63,39 +61,7 @@ permalink: /
   </div>
 </section>
 
-<!-- GALLERY & SHOP SECTION -->
-<section id="gallery">
-  <h2>Gallery & Shop</h2>
-  <div class="gallery-grid">
-    <div class="artwork-card">
-      <img src="/assets/images/art01.jpg" alt="Art Title 1" />
-      <h3>Art Title 1</h3>
-      <p>Medium · Year</p>
-      <p>$350</p>
-      <a class="cta-button" href="mailto:artist@email.com?subject=Art Purchase: Art Title 1">Purchase</a>
-    </div>
-    <div class="artwork-card">
-      <img src="/assets/images/art02.jpg" alt="Art Title 2" />
-      <h3>Art Title 2</h3>
-      <p>Medium · Year</p>
-      <p>$225</p>
-      <a class="cta-button" href="mailto:artist@email.com?subject=Art Purchase: Art Title 2">Purchase</a>
-    </div>
-    <!-- Add more artwork cards as needed -->
-  </div>
-</section>
 
-<!-- CONTACT SECTION -->
-<section id="contact">
-  <h2>Contact & Commissions</h2>
-  <p>Use the form below to request more info or commission a custom piece.</p>
-  <form action="https://formspree.io/f/your-form-id" method="POST" style="max-width:400px;margin:0 auto;">
-    <input type="text" name="name" placeholder="Name" required style="width:100%;margin-bottom:0.5em;">
-    <input type="email" name="email" placeholder="Email" required style="width:100%;margin-bottom:0.5em;">
-    <textarea name="message" placeholder="Your message" rows="4" required style="width:100%;margin-bottom:0.5em;"></textarea>
-    <button type="submit" class="cta-button" style="width:100%;">Send Message</button>
-  </form>
-</section>
 
 <style>
 html {
