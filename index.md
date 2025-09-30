@@ -12,7 +12,11 @@ permalink: /
     <li><a href="#featured">Featured Work</a></li>
   </ul>
 </nav>
+ <img src="assets/images/JFeelgood_Montage.gif" 
+     alt="JFeelgood_Montage" 
+     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
 
+     
 <!-- HERO SECTION -->
 <section id="hero" class="hero-banner" style="padding-top:4em;">
   <h2>Discover Unique, Original Art Pieces by JFeelgood</h2>
@@ -42,6 +46,11 @@ permalink: /
   </blockquote>
   <div style="clear:both;"></div>
 </section>
+
+ <img src="assets/images/JFeelgood_portrait3.jpg" 
+     alt="Portrait_of_JFeelgood_03" 
+     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
+
 
 <section id="featured">
   <h2>Featured Work</h2>
