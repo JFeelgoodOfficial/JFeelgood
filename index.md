@@ -1,18 +1,19 @@
 ---
 layout: default
-title: JFeelgood Studio
+title: JFeelgood Art
 permalink: /
 ---
+
 <!-- Navigation with anchor links to sections -->
 <nav class="landing-nav">
   <ul>
     <li><a href="#hero">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#featured">Featured Work</a></li>
-  
+    <li><a href="#gallery">Gallery & Shop</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-
 
 <!-- HERO SECTION -->
 <section id="hero" class="hero-banner" style="padding-top:4em;">
@@ -47,23 +48,20 @@ permalink: /
 <!-- FEATURED WORK SECTION -->
 <section id="featured">
   <h2>Featured Work</h2>
-  <div class="gallery-grid">
-    <!-- Example artwork cards -->
-    <div class="artwork-card">
-      <img src="/assets/images/art01.jpg" alt="Art Title 1" />
-      <h3>Art Title 1</h3>
-      <p>Medium · Year</p>
-    </div>
-    <div class="artwork-card">
-      <img src="/assets/images/art02.jpg" alt="Art Title 2" />
-      <h3>Art Title 2</h3>
-      <p>Medium · Year</p>
-    </div>
-    <!-- Add more featured artwork cards as needed -->
+  <div class="gallery-grid-featured">
+    <!-- Dynamically render all 153 images -->
+    {% for i in (1..153) %}
+      {% assign num = i | prepend: "000" | slice: -3, 3 %}
+      <div class="featured-artwork-card">
+        <img 
+          src="/assets/images/JFeelgoodArt{{ num }}.jpg" 
+          alt="JFeelgoodArt{{ num }}" 
+          loading="lazy"
+        />
+      </div>
+    {% endfor %}
   </div>
 </section>
-
-
 
 <style>
 .landing-nav {
@@ -117,6 +115,34 @@ section {
   margin-top: 1em;
 }
 .cta-button:hover { background: #a44d29; }
+
+.gallery-grid-featured {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.3em;
+}
+.featured-artwork-card {
+  background: #faf7f3;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 185px; /* uniform height for all cards */
+}
+.featured-artwork-card img {
+  max-height: 160px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -143,7 +169,11 @@ blockquote {
   font-style: italic;
   border-radius: 8px;
 }
+@media (max-width: 900px) {
+  .gallery-grid-featured { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 700px) {
+  .gallery-grid-featured { grid-template-columns: repeat(2, 1fr); }
   .gallery-grid { grid-template-columns: 1fr; }
   .landing-nav ul { flex-direction: column; gap: 0.5em; }
   section { padding: 2em 0.5em 1em 0.5em; }
