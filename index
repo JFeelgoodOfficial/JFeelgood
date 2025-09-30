@@ -1,147 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JFeelgood Studio</title>
-  <style>
-    body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      margin: 0;
-      background: #fff;
-      color: #222;
-    }
-    header {
-      background: #f5f5f5;
-      padding: 1em 0;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 900px;
-      margin: auto;
-      padding: 0 1em;
-    }
-    nav ul {
-      display: flex;
-      gap: 2em;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 600;
-    }
-    main {
-      max-width: 900px;
-      margin: 2em auto;
-      padding: 0 1em;
-    }
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 1em 0;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2em;
-    }
-    .artwork-card {
-      background: #fff;
-      border: 1px solid #eee;
-      padding: 1em;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-      text-align: center;
-    }
-    .artwork-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .hero-banner {
-      text-align: center;
-      padding: 3em 1em;
-      background: linear-gradient(120deg, #ece9e6, #ffffff 80%);
-      margin-bottom: 3em;
-    }
-    .hero-banner h2 {
-      margin-bottom: 0.5em;
-      font-size: 2em;
-      font-weight: 700;
-      color: #222;
-    }
-    .hero-banner p {
-      margin-bottom: 1em;
-      font-size: 1.25em;
-      color: #555;
-    }
-    .cta-button {
-      background: #222;
-      color: #fff;
-      padding: 0.8em 1.6em;
-      border-radius: 24px;
-      text-decoration: none;
-      font-size: 1em;
-      display: inline-block;
-      transition: background 0.3s;
-    }
-    .cta-button:hover {
-      background: #444;
-    }
-    @media (max-width:600px){
-      nav ul {
-        gap: 1em;
-      }
-      main {
-        padding: 0 1em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <h1><a href="index.html">JFeelgood Studio</a></h1>
-      <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="hero-banner">
-      <h2>Discover Unique, Original Art Pieces by JFeelgood</h2>
-      <p>Elevate your space with one-of-a-kind creations.</p>
-      <a class="cta-button" href="shop.html">Explore Gallery</a>
-    </section>
-    <h2>Featured Work</h2>
-    <div class="gallery-grid">
-      <div class="artwork-card">
-        <img src="https://via.placeholder.com/280x180?text=Art+Piece+1" alt="Art Piece 1" />
-        <h3>Art Piece 1</h3>
-        <p>Mixed Media · 2025</p>
-      </div>
-      <div class="artwork-card">
-        <img src="https://via.placeholder.com/280x180?text=Art+Piece+2" alt="Art Piece 2" />
-        <h3>Art Piece 2</h3>
-        <p>Oil on Canvas · 2024</p>
-      </div>
-      <div class="artwork-card">
-        <img src="https://via.placeholder.com/280x180?text=Art+Piece+3" alt="Art Piece 3" />
-        <h3>Art Piece 3</h3>
-        <p>Watercolor · 2023</p>
-      </div>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2025 JFeelgood. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+---
+layout: default
+title: Home
+---
+
+<div class="hero-banner">
+  <h2>Discover Unique, Original Art Pieces by JFeelgood</h2>
+  <p>Elevate your space with one-of-a-kind creations.</p>
+  <a class="cta-button" href="/shop">Explore Gallery</a>
+</div>
+
+## Featured Work
+
+<div class="gallery-grid">
+  <!-- Example artwork cards -->
+  <div class="artwork-card">
+    <img src="/assets/images/art01.jpg" alt="Art Title" />
+    <h3>Art Title 1</h3>
+    <p>Medium · Year</p>
+  </div>
+  <div class="artwork-card">
+    <img src="/assets/images/art02.jpg" alt="Art Title" />
+    <h3>Art Title 2</h3>
+    <p>Medium · Year</p>
+  </div>
+</div>
