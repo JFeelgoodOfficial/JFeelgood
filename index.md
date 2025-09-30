@@ -35,6 +35,11 @@ permalink: /
   <p>
     JFeelgood is an accomplished artist with over 18 years of experience in various mediums. He has produced a substantial body of work, including several hundred paintings, five published books, five music albums, and a video game. In addition to his own artistic pursuits, JFeelgood has also organized community events and served in leadership roles for various art organizations. He is dedicated to using his art as a means of self-expression and has a strong passion for helping others explore their own creative gifts. JFeelgood's relationship with art is central to his life and he continues to seek new ways to enrich this connection through life experiences and experimentation with new mediums.
   </p>
+  
+   <img src="assets/images/JFeelgood_portrait3.jpg" 
+     alt="Portrait_of_JFeelgood_03" 
+     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
+     
   <h3>What Collectors Are Saying:</h3>
   <blockquote>
     <p>"JFeelgood’s work brings a new dimension to my living space. Each piece is more than just art—it’s a conversation starter."<br>
@@ -47,9 +52,7 @@ permalink: /
   <div style="clear:both;"></div>
 </section>
 
- <img src="assets/images/JFeelgood_portrait3.jpg" 
-     alt="Portrait_of_JFeelgood_03" 
-     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
+
 
 
 <section id="featured">
