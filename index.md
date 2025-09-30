@@ -68,13 +68,6 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-  .featured-artwork-card img.enlarged {
-  transform: scale(2);
-  z-index: 99;
-  position: relative;
-  transition: transform 0.2s;
-}
-</style>
 
 body {
   margin: 0;
