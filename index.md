@@ -68,7 +68,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-  .featured-artwork-card img.enlarged {  transform: scale(2);  z-index: 99;  position: relative;  transition: transform 0.2s;}
+
 
 body {
   margin: 0;
@@ -254,33 +254,4 @@ form button.cta-button {
 }
 </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  let enlargedImg = null;
-
-  function shrinkImage() {
-    if (enlargedImg) {
-      enlargedImg.classList.remove("enlarged");
-      enlargedImg = null;
-    }
-  }
-
-  document.querySelectorAll('.featured-artwork-card img').forEach(img => {
-    img.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (enlargedImg === img) {
-        shrinkImage();
-      } else {
-        shrinkImage();
-        img.classList.add('enlarged');
-        enlargedImg = img;
-      }
-    });
-  });
-
-  // Shrink on scroll or clicking elsewhere
-  window.addEventListener('scroll', shrinkImage);
-  document.body.addEventListener('click', shrinkImage);
-});
-</script>
 
