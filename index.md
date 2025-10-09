@@ -5,10 +5,6 @@ permalink: /
 ---
 
 
- <img src="assets/images/JFeelgood_Montage.gif" 
-     alt="JFeelgood_Montage" 
-     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -466,6 +462,11 @@ permalink: /
             </form>
         </div>
     </div>
+
+
+ <img src="assets/images/JFeelgood_Montage.gif" 
+     alt="JFeelgood_Montage" 
+     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
 
     <!-- Hero Section -->
     <section class="hero">
