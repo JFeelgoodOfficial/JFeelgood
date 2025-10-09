@@ -26,46 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* Sticky CTA Bar */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
-            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
 
-        .sticky-cta.visible {
-            transform: translateY(0);
-        }
-
-        .sticky-cta-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .sticky-cta p {
-            font-size: 14px;
-            margin: 0;
-        }
-
-        .sticky-cta form {
-            display: flex;
-            gap: 10px;
-            flex: 1;
-            max-width: 400px;
-        }
 
         /* Hero Section */
         .hero {
@@ -551,22 +512,22 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav style="background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-            <a href="index.html" style="font-size: 1.5rem; font-weight: 600; color: var(--text-dark); text-decoration: none;">JFeelgood</a>
-            <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
-                <a href="index.html" style="color: var(--text-dark); text-decoration: none; transition: color 0.3s;">Home</a>
-                <a href="assets/images/prints.html" style="color: var(--text-dark); text-decoration: none; transition: color 0.3s;">Art Prints</a>
-                <a href="#book-feature" style="color: var(--text-dark); text-decoration: none; transition: color 0.3s;">Book</a>
-                <a href="#artist-bio" style="color: var(--text-dark); text-decoration: none; transition: color 0.3s;">About</a>
-                <a href="#email-capture" class="btn" style="padding: 10px 20px;">Subscribe</a>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">JFeelgood</a>
+            <button class="menu-button" id="menuButton" onclick="toggleMenu()">
+                <span>Menu</span>
+                <span id="menuIcon">☰</span>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="index.html">Home</a>
+                <a href="assets/images/prints.html">Art Prints</a>
+                <a href="#book-feature" onclick="closeMenu()">Book</a>
+                <a href="#artist-bio" onclick="closeMenu()">About</a>
+                <a href="#email-capture" class="cta-link" onclick="closeMenu()">Subscribe</a>
             </div>
         </div>
     </nav>
-
-<img src="assets/images/JFeelgood_Montage.gif" 
-     alt="JFeelgood_Montage" 
-     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
 
     <!-- Sticky CTA Bar -->
     <div class="sticky-cta" id="stickyCta">
@@ -609,14 +570,11 @@
     </section>
 
     <!-- Book Feature Section -->
-<img src="assets/images/JFeelgoodArt ThoughtEntropy.jpg" 
-     alt="JFeelgood Art Thought Entropy Book Cover" 
-     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
-    <section class="book-feature" id="book-feature">
+    <section class="book-feature">
         <div class="container">
             <div class="book-content">
                 <div class="book-image">
-                    <div class="book-cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; height: 100px;">
+                    <div class="book-cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; height: 500px;">
                         Thought Entropy
                     </div>
                 </div>
@@ -738,6 +696,30 @@
     </footer>
 
     <script>
+        // Menu toggle functionality
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('active');
+            icon.textContent = menu.classList.contains('active') ? '✕' : '☰';
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.remove('active');
+            icon.textContent = '☰';
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('dropdownMenu');
+            const button = document.getElementById('menuButton');
+            if (!menu.contains(e.target) && !button.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
         // Show sticky CTA after 5 seconds
         setTimeout(() => {
             document.getElementById('stickyCta').classList.add('visible');
