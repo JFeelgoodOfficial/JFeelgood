@@ -514,7 +514,7 @@ permalink: /
     </section>
 
     <!-- Book Feature Section -->
-    <section class="book-feature">
+    <section class="book-feature" id="book-feature">
         <div class="container">
             <div class="book-content">
                 <div class="book-image">
@@ -533,7 +533,7 @@ permalink: /
     </section>
 
     <!-- Featured Art Prints -->
-    <section class="prints-gallery">
+    <section class="prints-gallery" id="prints-gallery">
         <div class="container">
             <h2 class="section-title">Featured Art Prints</h2>
             <div class="gallery-grid">
@@ -573,7 +573,7 @@ permalink: /
     </section>
 
     <!-- Artist Bio -->
-    <section class="artist-bio">
+    <section class="artist-bio" id="artist-bio">
         <div class="container">
             <div class="bio-content">
                 <div class="bio-image"></div>
