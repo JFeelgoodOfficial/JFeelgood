@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -494,13 +494,13 @@
     <!-- Header -->
     <header>
         <nav>
-            <a href="index.html" class="logo">JFeelgood</a>
+            <a href="../../index.html" class="logo">JFeelgood</a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="../../index.html">Home</a>
                 <a href="prints.html">Art Prints</a>
-                <a href="index.html#book-feature">Book</a>
-                <a href="index.html#artist-bio">About</a>
-                <a href="index.html#email-capture" class="btn" style="padding: 10px 20px;">Subscribe</a>
+                <a href="../../index.html#book-feature">Book</a>
+                <a href="../../index.html#artist-bio">About</a>
+                <a href="../../index.html#email-capture" class="btn" style="padding: 10px 20px;">Subscribe</a>
             </div>
         </nav>
     </header>
