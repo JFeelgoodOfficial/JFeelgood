@@ -50,6 +50,77 @@
             text-decoration: none;
         }
 
+        .menu-button {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .menu-button:hover {
+            color: var(--primary-cta);
+        }
+
+        .menu-button span {
+            font-size: 0.9rem;
+            font-family: Georgia, serif;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 40px;
+            background: white;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: background 0.3s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--accent-light);
+            color: var(--primary-cta);
+        }
+
+        .dropdown-menu a.cta-link {
+            background: var(--primary-cta);
+            color: white;
+            font-weight: 600;
+        }
+
+        .dropdown-menu a.cta-link:hover {
+            background: #1f4437;
+        }
+
         .nav-links {
             display: flex;
             gap: 30px;
@@ -553,7 +624,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 JFeelgood. All rights reserved. | <a href="index.html">Back to Home</a></p>
+        <p>&copy; 2025 JFeelgood. All rights reserved. | <a href="../../index.html">Back to Home</a></p>
     </footer>
 
     <script>
