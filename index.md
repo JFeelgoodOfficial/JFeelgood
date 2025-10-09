@@ -514,7 +514,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">JFeelgood</a>
+            <a href="index.html"> </a>
             <button class="menu-button" id="menuButton" onclick="toggleMenu()">
                 <span>Menu</span>
                 <span id="menuIcon">☰</span>
@@ -529,16 +529,6 @@
         </div>
     </nav>
 
-    <!-- Sticky CTA Bar -->
-    <div class="sticky-cta" id="stickyCta">
-        <div class="sticky-cta-content">
-            <p><strong>Transform your perspective.</strong> Join our community for exclusive art insights.</p>
-            <form onsubmit="handleEmailSubmit(event, 'sticky')">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="btn">Subscribe</button>
-            </form>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
