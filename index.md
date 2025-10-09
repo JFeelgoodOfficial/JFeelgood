@@ -1,8 +1,3 @@
----
-layout: default
-title: JFeelgood Art
-permalink: /
----
 
 
 
