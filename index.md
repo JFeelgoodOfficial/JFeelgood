@@ -1,8 +1,4 @@
-
-
-
-
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -417,8 +413,113 @@
             margin-top: 15px;
         }
 
+        /* Navigation Menu */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .menu-button:hover {
+            color: var(--primary-cta);
+        }
+
+        .menu-button span {
+            font-size: 0.9rem;
+            font-family: Georgia, serif;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 40px;
+            background: white;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: background 0.3s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--accent-light);
+            color: var(--primary-cta);
+        }
+
+        .dropdown-menu a.cta-link {
+            background: var(--primary-cta);
+            color: white;
+            font-weight: 600;
+        }
+
+        .dropdown-menu a.cta-link:hover {
+            background: #1f4437;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 20px;
+            }
+
+            .dropdown-menu {
+                right: 20px;
+                left: 20px;
+                min-width: auto;
+            }
             .book-content,
             .bio-content {
                 grid-template-columns: 1fr;
@@ -463,8 +564,7 @@
         </div>
     </nav>
 
-
- <img src="assets/images/JFeelgood_Montage.gif" 
+<img src="assets/images/JFeelgood_Montage.gif" 
      alt="JFeelgood_Montage" 
      style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
 
@@ -509,7 +609,7 @@
     </section>
 
     <!-- Book Feature Section -->
-     <img src="assets/images/JFeelgoodArtThoughtEntropy.jpg" 
+<img src="assets/images/JFeelgoodArt ThoughtEntropy.jpg" 
      alt="JFeelgood Art Thought Entropy Book Cover" 
      style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
     <section class="book-feature" id="book-feature">
@@ -521,16 +621,17 @@
                     </div>
                 </div>
                 <div class="book-info">
-                                     <p>A transformative exploration of chaos, creativity, and the human condition. Thought Entropy invites you to embrace the beautiful disorder of your inner world and channel it into purposeful action.</p>
+                    <h2>Thought Entropy</h2>
+                    <p>A transformative exploration of chaos, creativity, and the human condition. Thought Entropy invites you to embrace the beautiful disorder of your inner world and channel it into purposeful action.</p>
                     <p>Through powerful narratives and profound insights, discover how disorder can become your greatest source of creative energy and personal growth.</p>
-                    <a href="[https://www.amazon.com](https://a.co/d/93pSnl1)" target="_blank" class="btn">Buy on Amazon</a>
+                    <a href="https://www.amazon.com" target="_blank" class="btn">Buy on Amazon</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Art Prints -->
-    <section class="prints-gallery" id="prints-gallery">
+    <section class="prints-gallery">
         <div class="container">
             <h2 class="section-title">Featured Art Prints</h2>
             <div class="gallery-grid">
@@ -564,13 +665,13 @@
                 </div>
             </div>
             <div class="gallery-cta">
-                <a href="#" class="btn">Browse Full Print Shop</a>
+                <a href="assets/images/prints.html" class="btn">Browse Full Print Shop</a>
             </div>
         </div>
     </section>
 
     <!-- Artist Bio -->
-    <section class="artist-bio" id="artist-bio">
+    <section class="artist-bio">
         <div class="container">
             <div class="bio-content">
                 <div class="bio-image"></div>
@@ -613,7 +714,7 @@
                     <h3>Quick Links</h3>
                     <a href="#email-capture">Subscribe</a>
                     <a href="#book-feature">Thought Entropy</a>
-                    <a href="#prints-gallery">Art Prints</a>
+                    <a href="assets/images/prints.html">Art Prints</a>
                     <a href="#artist-bio">About</a>
                 </div>
                 <div class="footer-section">
