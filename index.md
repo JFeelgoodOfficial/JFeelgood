@@ -509,19 +509,21 @@
     </section>
 
     <!-- Book Feature Section -->
+     <img src="assets/images/JFeelgoodArtThoughtEntropy.jpg" 
+     alt="JFeelgood Art Thought Entropy Book Cover" 
+     style="max-width:200px; border-radius:12px; display:block; margin:1.5em auto 1em auto;" />
     <section class="book-feature" id="book-feature">
         <div class="container">
             <div class="book-content">
                 <div class="book-image">
-                    <div class="book-cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; height: 500px;">
+                    <div class="book-cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; height: 100px;">
                         Thought Entropy
                     </div>
                 </div>
                 <div class="book-info">
-                    <h2>Thought Entropy</h2>
-                    <p>A transformative exploration of chaos, creativity, and the human condition. Thought Entropy invites you to embrace the beautiful disorder of your inner world and channel it into purposeful action.</p>
+                                     <p>A transformative exploration of chaos, creativity, and the human condition. Thought Entropy invites you to embrace the beautiful disorder of your inner world and channel it into purposeful action.</p>
                     <p>Through powerful narratives and profound insights, discover how disorder can become your greatest source of creative energy and personal growth.</p>
-                    <a href="https://www.amazon.com" target="_blank" class="btn">Buy on Amazon</a>
+                    <a href="[https://www.amazon.com](https://a.co/d/93pSnl1)" target="_blank" class="btn">Buy on Amazon</a>
                 </div>
             </div>
         </div>
