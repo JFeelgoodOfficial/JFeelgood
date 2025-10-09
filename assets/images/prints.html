@@ -81,16 +81,11 @@
             border-radius: 8px;
             overflow: hidden;
             min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
+            display: none;
         }
 
         .dropdown-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+            display: block;
         }
 
         .dropdown-menu a {
@@ -515,14 +510,14 @@
         /* Responsive */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                gap: 20px;
+                flex-direction: row;
                 padding: 20px;
             }
 
-            .nav-links {
-                flex-direction: column;
-                gap: 15px;
+            .dropdown-menu {
+                right: 20px;
+                left: 20px;
+                min-width: auto;
             }
 
             .controls-container {
@@ -566,12 +561,16 @@
     <header>
         <nav>
             <a href="../../index.html" class="logo">JFeelgood</a>
-            <div class="nav-links">
+            <button class="menu-button" id="menuButton" onclick="toggleMenu()">
+                <span>Menu</span>
+                <span id="menuIcon">☰</span>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
                 <a href="../../index.html">Home</a>
                 <a href="prints.html">Art Prints</a>
                 <a href="../../index.html#book-feature">Book</a>
                 <a href="../../index.html#artist-bio">About</a>
-                <a href="../../index.html#email-capture" class="btn" style="padding: 10px 20px;">Subscribe</a>
+                <a href="../../index.html#email-capture" class="cta-link">Subscribe</a>
             </div>
         </nav>
     </header>
@@ -628,6 +627,30 @@
     </footer>
 
     <script>
+        // Menu toggle functionality
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('active');
+            icon.textContent = menu.classList.contains('active') ? '✕' : '☰';
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.remove('active');
+            icon.textContent = '☰';
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('dropdownMenu');
+            const button = document.getElementById('menuButton');
+            if (!menu.contains(e.target) && !button.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
         // Generate product data
         const products = [];
         const basePrice = 125;
