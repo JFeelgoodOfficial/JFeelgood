@@ -430,16 +430,11 @@
             border-radius: 8px;
             overflow: hidden;
             min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
+            display: none;
         }
 
         .dropdown-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+            display: block;
         }
 
         .dropdown-menu a {
@@ -514,7 +509,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html"> </a>
+            <a href="index.html" class="nav-logo">JFeelgood</a>
             <button class="menu-button" id="menuButton" onclick="toggleMenu()">
                 <span>Menu</span>
                 <span id="menuIcon">☰</span>
@@ -528,7 +523,6 @@
             </div>
         </div>
     </nav>
-
 
     <!-- Hero Section -->
     <section class="hero">
@@ -710,11 +704,6 @@
             }
         });
 
-        // Show sticky CTA after 5 seconds
-        setTimeout(() => {
-            document.getElementById('stickyCta').classList.add('visible');
-        }, 5000);
-
         // Handle email form submissions
         function handleEmailSubmit(event, formType) {
             event.preventDefault();
@@ -735,8 +724,6 @@
                 setTimeout(() => {
                     document.getElementById('footerSuccess').style.display = 'none';
                 }, 5000);
-            } else if (formType === 'sticky') {
-                alert('Thank you for subscribing!');
             }
             
             form.reset();
