@@ -1,399 +1,133 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JFeelgood - Art & Thought Entropy</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JFeelgood Official Art Gallery & Literary Publication</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
             line-height: 1.6;
-            color: #333;
-            background: #f9f9f9;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 1rem 2rem;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
         }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: white;
-            color: #667eea;
+        header a {
+            color: #fff;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            font-size: 1rem;
         }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        header a:hover {
+            text-decoration: underline;
         }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 80px 0;
-            background: #2a2a2a;
-            min-height: 100vh;
-            position: relative;
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
-
-        .gallery-section h2 {
+        h1, h2, h3 {
+            color: #222;
+        }
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 500;
             text-align: center;
-            color: white;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-
-        .gallery-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            perspective: 1000px;
-            overflow: hidden;
-        }
-
-        .gallery-wall {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 80px;
-            padding: 0 100px;
-            transition: transform 0.5s ease;
-        }
-
-        .artwork {
-            flex-shrink: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            position: relative;
-        }
-
-        .artwork img {
-            display: block;
-            width: 400px;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .gallery-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 2rem;
-            z-index: 10;
-        }
-
-        .gallery-nav:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .gallery-nav.prev {
-            left: 20px;
-        }
-
-        .gallery-nav.next {
-            right: 20px;
-        }
-
-        .gallery-counter {
-            text-align: center;
-            color: white;
-            margin-top: 30px;
-            font-size: 1.2rem;
-        }
-
-        /* Book Section */
-        .book-section {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .book-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .book-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .book-cover {
-            width: 350px;
-            height: 500px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: bold;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border-radius: 10px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .book-info {
-            flex: 1;
-        }
-
-        .book-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #667eea;
-        }
-
-        .book-info p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 2rem;
             color: #555;
         }
-
-        /* Bio Section */
-        .bio-section {
-            padding: 100px 0;
-            background: #f5f5f5;
+        blockquote {
+            font-style: italic;
+            background-color: #eee;
+            padding: 1rem;
+            border-left: 4px solid #222;
+            margin: 1rem 0;
         }
-
-        .bio-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .bio-image {
-            flex: 1;
-            height: 400px;
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-        }
-
-        .bio-text {
-            flex: 1;
-        }
-
-        .bio-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-
-        .bio-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-        .social-links {
+        footer {
+            text-align: center;
+            padding: 1rem 0;
             margin-top: 2rem;
+            color: #777;
+            font-size: 0.9rem;
         }
-
-        .social-icon {
+        .button-primary {
             display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: #667eea;
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
+            background-color: #222;
+            color: #fff;
+            padding: 0.7rem 1.6rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            margin: 1rem 0;
+            transition: background-color 0.3s ease;
+        }
+        .button-primary:hover {
+            background-color: #555;
+        }
+        nav {
+            display: flex;
+            justify-content: flex-end;
             align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .book-content,
-            .bio-content {
-                flex-direction: column;
-            }
-
-            .artwork img {
-                width: 300px;
-                height: 400px;
-            }
-
-            .gallery-wall {
-                padding: 0 80px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>JFeelgood</h1>
-            <p>Where Chaos Becomes Creation</p>
-            <a href="#gallery" class="btn">Explore Gallery</a>
-        </div>
+    <header>
+        <div><a href="https://www.jfeelgood.com/" style="font-weight:bold; font-size:1.2rem;">JFeelgood.com</a></div>
+        <nav>
+            <a href="https://www.jfeelgood.com/shop-art.html">Shop Art</a>
+            <a href="https://www.jfeelgood.com/your-invitation.html">Browse Collections</a>
+            <a href="https://www.jfeelgood.com/#">Cart (0)</a>
+        </nav>
+    </header>
+
+    <section class="container">
+        <h1>Official Online Art Gallery and Literary Publication by the Artist JFeelgood</h1>
+        <p class="tagline">Discover Unique, Original Art Pieces by JFeelgood – Elevate Your Space Today.</p>
+
+        <h2>Studio of<br>JFeelgood</h2>
+        <p>JFeelgood is an accomplished artist with over 18 years of experience in various mediums. He has produced a substantial body of work, including several hundred paintings, five published books, five music albums, and a video game. In addition to his own artistic pursuits, JFeelgood has also organized community events and served in leadership roles for various art organizations. He is dedicated to using his art as a means of self-expression and has a strong passion for helping others explore their own creative gifts. JFeelgood's relationship with art is central to his life and he continues to seek new ways to enrich this connection through life experiences and experimentation with new mediums.</p>
+
+        <h3>What Collectors Are Saying:</h3>
+        <blockquote>"JFeelgood’s work brings a new dimension to my living space. Each piece is more than just art—it’s a conversation starter."<br>— Sarah M., Austin, TX</blockquote>
+        <blockquote>"The quality of the prints is outstanding. The colors are as vibrant as the originals, and the paper is top-notch."<br>— Michael P., New York, NY</blockquote>
+
+        <p>Explore the collection and find the piece that speaks to you.</p>
+        <a class="button-primary" href="https://www.jfeelgood.com/shop-art.html">Buy Original Paintings created by JFeelgood here.</a>
+
+        <h3>Explore the exclusive world of JFeelgood's original paintings</h3>
+        <p>Each piece tells a unique story, available in a range of sizes and prices to adorn your space.</p>
+
+        <h3>Online Literary Publication</h3>
+        <p><a href="https://www.iexploreart.com/">Check out my Online Literary Publication, iExploreArt!</a></p>
+        <p>iexploreart.com is an art-focused publication that explores contemporary and historical art through insightful articles, curator perspectives, and artist features. It aims to engage collectors, artists, and enthusiasts with thought-provoking content that highlights the evolving art world. Every article is written by JFeelgood.</p>
+
+        <hr>
+
+        <h3>Thought Entropy</h3>
+        <p>Immerse yourself in the pages of 'Thought Entropy' by JFeelgood, a profound exploration of the artist's subconscious mind and imaginative realm. Now available on Amazon, this book invites you to a journey of introspection and transformation. Secure your copy today and embark on an unforgettable adventure.</p>
+        <a class="button-primary" href="https://a.co/d/eP2kglH">Buy JFeelgood's Book Here</a>
+
+        <p><strong>20 years.</strong><br>
+        <strong>400 pages.</strong><br>
+        Paintings, writings, and more.<br>
+        Enjoy the Art works of JFeelgood all in one place with his new book, <a href="https://a.co/d/eWrV6dL">Thought Entropy</a>.</p>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="gallery">
-        <div class="container">
-            <h2>Art Gallery</h2>
-            <div class="gallery-container">
-                <div class="gallery-wall" id="galleryWall"></div>
-                <div class="gallery-nav prev" onclick="navigateGallery(-1)">‹</div>
-                <div class="gallery-nav next" onclick="navigateGallery(1)">›</div>
-            </div>
-            <div class="gallery-counter">
-                <span id="currentImage">1</span> / <span id="totalImages">155</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Book Section -->
-    <section class="book-section" id="book">
-        <div class="container">
-            <div class="book-content">
-                <div class="book-image">
-                    <div class="book-cover">Thought Entropy</div>
-                </div>
-                <div class="book-info">
-                    <h2>Thought Entropy</h2>
-                    <p>A transformative exploration of chaos, creativity, and the human condition. Thought Entropy invites you to embrace the beautiful disorder of your inner world and channel it into purposeful action.</p>
-                    <p>Through powerful narratives and profound insights, discover how disorder can become your greatest source of creative energy and personal growth.</p>
-                    <a href="https://www.amazon.com" target="_blank" class="btn">Buy on Amazon</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Artist Bio -->
-    <section class="bio-section" id="about">
-        <div class="container">
-            <div class="bio-content">
-                <div class="bio-image"></div>
-                <div class="bio-text">
-                    <h2>About the Artist</h2>
-                    <p>JFeelgood is an artist dedicated to exploring the depths of human consciousness through visual storytelling. With a focus on personal transformation and self-discovery, each piece invites viewers to confront their own inner landscapes.</p>
-                    <p>Inspired by the philosophy that chaos can become creation, and that our struggles can transform into our greatest strengths, JFeelgood's work bridges the gap between abstract expression and tangible emotional resonance.</p>
-                    <p><strong>Mission:</strong> To inspire personal transformation through art that speaks to the universal human experience of growth, struggle, and ultimately, triumph.</p>
-                   
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        const totalImages = 155;
-        let currentIndex = 0;
-        const visibleArtworks = 3;
-
-        function initGallery() {
-            const galleryWall = document.getElementById('galleryWall');
-            
-            for (let i = 1; i <= totalImages; i++) {
-                const artwork = document.createElement('div');
-                artwork.className = 'artwork';
-                artwork.innerHTML = `<img src="assets/image/JFeelgoodArt${String(i).padStart(3, '0')}.jpg" alt="JFeelgood Art ${i}" onerror="this.src='https://via.placeholder.com/400x500?text=Art+${i}'">`;
-                galleryWall.appendChild(artwork);
-            }
-
-            updateGallery();
-        }
-
-        function navigateGallery(direction) {
-            currentIndex += direction;
-            
-            if (currentIndex < 0) {
-                currentIndex = totalImages - 1;
-            } else if (currentIndex >= totalImages) {
-                currentIndex = 0;
-            }
-            
-            updateGallery();
-        }
-
-        function updateGallery() {
-            const galleryWall = document.getElementById('galleryWall');
-            const artworkWidth = 480;
-            const offset = -currentIndex * artworkWidth;
-            
-            galleryWall.style.transform = `translateX(${offset}px)`;
-            
-            document.getElementById('currentImage').textContent = currentIndex + 1;
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') navigateGallery(-1);
-            if (e.key === 'ArrowRight') navigateGallery(1);
-        });
-
-        // Initialize gallery on load
-        initGallery();
-    </script>
+    <footer>
+        &copy; 2025 JFeelgood. All rights reserved.
+    </footer>
 </body>
 </html>
