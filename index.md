@@ -53,7 +53,7 @@
   <p>Explore the collection and find the piece that speaks to you.</p>
 </section>
 <section class="shop-links">
-  <a href="https://www.jfeelgood.com/shop-art.html" target="_blank">Buy Original Paintings</a>
+
   <a href="https://a.co/d/eP2kglH" target="_blank">Buy JFeelgood's Book Here</a>
 </section>
 <section class="book-promo">
