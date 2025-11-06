@@ -27,9 +27,14 @@
     <!-- Carousel Gallery using Swiper.js -->
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="art1.jpg" alt="Art 1" /></div>
-        <div class="swiper-slide"><img src="art2.jpg" alt="Art 2" /></div>
-        <div class="swiper-slide"><img src="art3.jpg" alt="Art 3" /></div>
+        <div class="swiper-slide"><img src="JFeelgoodArt001.jpg" alt="Art 1" /></div>
+        <div class="swiper-slide"><img src="JFeelgoodArt002.jpg" alt="Art 2" /></div>
+        <div class="swiper-slide"><img src="JFeelgoodArt003.jpg" alt="Art 3" /></div>
+        <div class="swiper-slide"><img src="JFeelgoodArt004.jpg" alt="Art 4" /></div>
+        <div class="swiper-slide"><img src="JFeelgoodArt005.jpg" alt="Art 5" /></div>
+        <div class="swiper-slide"><img src="JFeelgoodArt006.jpg" alt="Art 6" /></div>
+        <div class="swiper-slide"><img src="JFeelgoodArt007.jpg" alt="Art 7" /></div>
+        <div class="swiper-slide"><img src="JFeelgoodArt008.jpg" alt="Art 8" /></div>
         <!-- Add more slides as needed -->
       </div>
       <div class="swiper-pagination"></div>
