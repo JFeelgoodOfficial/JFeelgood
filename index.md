@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JFeelgood | Art Gallery</title>
+  <title>JFeelgood Studio | Art Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Swiper CSS for carousel functionality -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <style>
     body { font-family: Arial, sans-serif; background: #fafafa; margin: 0; color: #111; }
-    header { text-align: center; padding: 2rem 1rem 0.8rem; font-size: 2.5rem; font-weight: 600; letter-spacing: 0.03em; }
+    header { text-align: center; padding: 2rem 1rem 0.5rem; font-size: 2.5rem; font-weight: 600; letter-spacing: 0.03em; }
+    .montage { display: flex; justify-content: center; margin-bottom: 1.2rem;}
+    .montage img { max-width:320px; width:100%; border-radius:10px; }
     .subtitle { text-align: center; font-size: 1.2rem; color: #444; margin-bottom: 1.5rem; }
     .artist-bio, .testimonials, .shop-links { max-width:600px;margin:2rem auto;padding:0 1rem;}
     h2 { font-size:1.35rem;margin-top:2rem;}
@@ -18,11 +19,15 @@
     .testimonials blockquote { border-left: 4px solid #888; margin: 1.4em 0; padding-left:1em; font-style: italic; }
     .shop-links a { display:inline-block;padding:0.5em 1.2em;margin:0.7em 0.4em;background:#097;color:#fff;border-radius:7px;text-decoration:none;}
     .shop-links a:hover { background:#085a7e;}
+    .book-promo-img { display: block; max-width:260px; margin:2rem auto 0.7rem; border-radius:12px; box-shadow:0 3px 10px #bbb8;}
     footer {text-align:center;padding:2rem;color:#666;font-size:1rem;}
   </style>
 </head>
 <body>
-<header>JFeelgood</header>
+<header>JFeelgood Studio</header>
+<div class="montage">
+  <img src="https://github.com/JFeelgoodOfficial/JFeelgood/blob/main/assets/images/JFeelgood_Montage.gif?raw=true" alt="JFeelgood Studio Montage">
+</div>
 <div class="subtitle">Discover Unique, Original Art Pieces by JFeelgood<br>Elevate Your Space.</div>
 <section class="artist-bio">
   <p>
@@ -53,10 +58,11 @@
   <p>Explore the collection and find the piece that speaks to you.</p>
 </section>
 <section class="shop-links">
-
+  <a href="https://www.jfeelgood.com/shop-art.html" target="_blank">Buy Original Paintings</a>
   <a href="https://a.co/d/eP2kglH" target="_blank">Buy JFeelgood's Book Here</a>
 </section>
 <section class="book-promo">
+  <img class="book-promo-img" src="https://github.com/JFeelgoodOfficial/JFeelgood/blob/main/assets/images/JFeelgoodArt%20ThoughtEntropy.jpg?raw=true" alt="Thought Entropy Book Cover by JFeelgood">
   <h2>Thought Entropy</h2>
   <p>
     Immerse yourself in the pages of 'Thought Entropy' by JFeelgood, a profound exploration of the artist's subconscious mind and imaginative realm.<br>
@@ -71,9 +77,8 @@
   </p>
 </section>
 <footer>
-  &copy; 2025 JFeelgood. All Rights Reserved.
+  &copy; 2025 JFeelgood Studio. All Rights Reserved.
 </footer>
-<!-- Swiper JS for carousel functionality -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
 // Dynamically create slides for each image
