@@ -749,11 +749,11 @@
             <aside class="hero-art-card" aria-label="Featured painting preview">
               <div class="hero-art-inner">
                 <div class="hero-art-img">
-                  <!-- Replace with an actual img tag if you have an image -->
-                  <!-- <img src="images/poetry-of-solace.jpg" alt="Poetry of Solace painting by JFeelgood"> -->
-                  Poetry of Solace<br>
-                  (placeholder image)
-                </div>
+  <img src="assets/images/jfeelgood.jpg"
+       alt="Portrait of artist JFeelgood"
+       style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
+</div>
+
                 <div class="hero-art-meta">
                   <div>
                     <div class="hero-art-title">Poetry of Solace</div>
@@ -781,9 +781,11 @@
             <!-- Poetry of Solace -->
             <article class="art-card">
               <div class="art-thumb">
-                <!-- <img src="images/poetry-of-solace.jpg" alt="Poetry of Solace painting"> -->
-                A solitary figure on a vividly lit path, standing beneath a star-studded sky. Placeholder for “Poetry of Solace”.
-              </div>
+  <img src="assets/images/poetry of solace.png"
+       alt="Poetry of Solace painting by JFeelgood"
+       style="width:100%;height:100%;object-fit:cover;border-radius:11px;">
+</div>
+
               <div>
                 <div class="art-title">Poetry of Solace</div>
                 <div class="art-series">Series: The Lost · Acrylic on canvas</div>
@@ -800,9 +802,11 @@
             <!-- Adonis -->
             <article class="art-card">
               <div class="art-thumb">
-                <!-- <img src="images/adonis.jpg" alt="Adonis painting"> -->
-                A stylized face against a vibrant yellow field, blue tear falling from blue eyes. Placeholder for “Adonis”.
-              </div>
+  <img src="assets/images/Adonis.png"
+       alt="Adonis painting by JFeelgood"
+       style="width:100%;height:100%;object-fit:cover;border-radius:11px;">
+</div>
+
               <div>
                 <div class="art-title">Adonis</div>
                 <div class="art-series">Series: Thought Entropy · Acrylic on canvas</div>
@@ -819,9 +823,11 @@
             <!-- Veritas -->
             <article class="art-card">
               <div class="art-thumb">
-                <!-- <img src="images/veritas.jpg" alt="Veritas painting"> -->
-                A transparent princess on stage, framed by chaotic bursts of color. Placeholder for “Veritas”.
-              </div>
+  <img src="assets/images/veritas.jpg"
+       alt="Veritas painting by JFeelgood"
+       style="width:100%;height:100%;object-fit:cover;border-radius:11px;">
+</div>
+
               <div>
                 <div class="art-title">Veritas</div>
                 <div class="art-series">Series: Thought Entropy · Mixed media</div>
@@ -838,9 +844,11 @@
             <!-- Path of Privilege -->
             <article class="art-card">
               <div class="art-thumb">
-                <!-- <img src="images/path-of-privilege.jpg" alt="Path of Privilege painting"> -->
-                Two paintbrushes dragging a red path across gold leaf. Placeholder for “Path of Privilege”.
-              </div>
+  <img src="assets/images/path of privilege.jpg"
+       alt="Path of Privilege artwork by JFeelgood"
+       style="width:100%;height:100%;object-fit:cover;border-radius:11px;">
+</div>
+
               <div>
                 <div class="art-title">Path of Privilege</div>
                 <div class="art-series">Series: Thought Entropy · Mixed media</div>
@@ -881,11 +889,13 @@
             <div class="carousel" aria-label="Self Work series carousel">
               <div class="carousel-main">
                 <div class="carousel-art">
-                  <div class="carousel-art-box" id="selfwork-image">
-                    <!-- Placeholder; swap to actual image tags if desired -->
-                    Vanity<br>
-                    (Self Work series – placeholder artwork)
-                  </div>
+                  <div class="carousel-art-box">
+  <img id="selfwork-image"
+       src="assets/images/Vanity by JFeelgood.jpg"
+       alt="Vanity from the Self Work series by JFeelgood"
+       style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+</div>
+
                 </div>
                 <div class="carousel-text">
                   <div class="carousel-title" id="selfwork-title">Vanity</div>
@@ -931,11 +941,12 @@
           <div class="books-grid">
             <!-- Thought Entropy -->
             <article class="book-card">
-              <div class="book-cover">
-                <!-- <img src="images/thought-entropy-cover.jpg" alt="Thought Entropy book cover"> -->
-                <strong>Thought Entropy</strong><br>
-                (placeholder cover – replace with actual art)
-              </div>
+             <div class="book-cover">
+  <img src="assets/images/Thought Entropy Cover.jpg"
+       alt="Thought Entropy book cover by JFeelgood"
+       style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+</div>
+
               <div>
                 <div class="book-title">Thought Entropy</div>
                 <div class="book-sub">20 years of paintings, poems, and visual stories</div>
@@ -954,10 +965,11 @@
             <!-- The Book of Shadow Work -->
             <article class="book-card">
               <div class="book-cover">
-                <!-- <img src="images/book-of-shadow-work-cover.jpg" alt="The Book of Shadow Work cover"> -->
-                <strong>The Book of Shadow Work</strong><br>
-                (placeholder cover – born from the Self Work series)
-              </div>
+  <img src="assets/images/TBOSW cover.jpg"
+       alt="The Book of Shadow Work cover by JFeelgood"
+       style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+</div>
+
               <div>
                 <div class="book-title">The Book of Shadow Work</div>
                 <div class="book-sub">Art, questions, and practices for inner excavation</div>
@@ -1022,84 +1034,93 @@
 
     // Self Work carousel data
     const selfWorkPieces = [
-      {
-        title: "Vanity",
-        meta: "24\" × 30\" · Acrylic on canvas, epoxy resin",
-        body: [
-          "The difficulties of having relationships that are honest and healthy when I am arrogant or narcissistic.",
-          "When I am selective in hearing, I feed the monster only what it wants to hear, instead of being open to opportunities for growth."
-        ],
-        imageText: "Vanity (Self Work series – placeholder artwork)"
-      },
-      {
-        title: "The King",
-        meta: "24\" × 28\" · Acrylic on canvas, epoxy resin",
-        body: [
-          "In being too bossy or vindictive, I lose sight of purpose and push others away due to uncouth behavior."
-        ],
-        imageText: "The King (Self Work series – placeholder artwork)"
-      },
-      {
-        title: "Pride",
-        meta: "24\" × 30\" · Acrylic on canvas, epoxy resin",
-        body: [
-          "Work, no matter the urgency or size, has purpose.",
-          "If I do not enjoy it, then the effort means nothing and I miss out on life.",
-          "Wisdom suggests the importance of a devoted outlook."
-        ],
-        imageText: "Pride (Self Work series – placeholder artwork)"
-      },
-      {
-        title: "Lush",
-        meta: "24\" × 30\" · Acrylic on canvas, epoxy resin",
-        body: [
-          "The cycle of bad habits entertained by vices in excess, cleverly disguised as an aide in helping, and their various laborious, taxing, withdrawal periods.",
-          "Without them, I am the blank canvas... open to new ideas, new feelings, a new me."
-        ],
-        imageText: "Lush (Self Work series – placeholder artwork)"
-      },
-      {
-        title: "Businessman",
-        meta: "30\" × 40\" · Acrylic on canvas, wood panel, epoxy resin",
-        body: [
-          "Alignment solely with wealth building and material systems keeps my emotional and spiritual growth inhibited."
-        ],
-        imageText: "Businessman (Self Work series – placeholder artwork)"
-      },
-      {
-        title: "Best Friend",
-        meta: "30\" × 40\" · Acrylic on canvas, wood panel, epoxy resin",
-        body: [
-          "Always there.",
-          "In the shadows or in the spotlight. The monster thrives on fear and will put me in positions that make me afraid and vulnerable.",
-          "With patience, I face my fears as they present themselves.",
-          "Vulnerability is the precursor to authenticity. I grow bigger than my fears because I have them.",
-          "What feeds the monster, feeds me."
-        ],
-        imageText: "Best Friend (Self Work series – placeholder artwork)"
-      },
-      {
-        title: "Vicarious",
-        meta: "29.5\" × 30.5\" · Acrylic on canvas, epoxy resin",
-        body: [
-          "Living in the throes of imagination, I am aged by experiences of a thousand lifetimes, at the cost of growing closer to real people."
-        ],
-        imageText: "Vicarious (Self Work series – placeholder artwork)"
-      },
-      {
-        title: "Permission",
-        meta: "40\" × 30\" · Acrylic on canvas, epoxy resin",
-        body: [
-          "Brilliant and mighty power. Sometimes, I seek it from others long before I consider it coming from myself.",
-          "The burden of permission is great. Once I permit myself, I am then indebted to that permission.",
-          "Without discipline, it is nearly impossible to return to the respect for the weight of what has been permitted.",
-          "Familiarity is the greatest weakness of the evolving spirit and I long for it in all of my endeavors. Even in the unknown I find a familiar solace, a mirror of my imagination.",
-          "Am I mindful of what my actions are that people consider permission in their lives?",
-          "Am I mindful of the permissions I grant myself?"
-        ],
-        imageText: "Permission (Self Work series – placeholder artwork)"
-      }
-    ];
+  {
+    title: "Vanity",
+    meta: "24\" × 30\" · Acrylic on canvas, epoxy resin",
+    body: [
+      "The difficulties of having relationships that are honest and healthy when I am arrogant or narcissistic.",
+      "When I am selective in hearing, I feed the monster only what it wants to hear, instead of being open to opportunities for growth."
+    ],
+    imageSrc: "assets/images/Vanity by JFeelgood.jpg",
+    imageAlt: "Vanity painting from the Self Work series by JFeelgood"
+  },
+  {
+    title: "The King",
+    meta: "24\" × 28\" · Acrylic on canvas, epoxy resin",
+    body: [
+      "In being too bossy or vindictive, I lose sight of purpose and push others away due to uncouth behavior."
+    ],
+    imageSrc: "assets/images/The King by JFeelgood.jpg",
+    imageAlt: "The King painting from the Self Work series by JFeelgood"
+  },
+  {
+    title: "Pride",
+    meta: "24\" × 30\" · Acrylic on canvas, epoxy resin",
+    body: [
+      "Work, no matter the urgency or size, has purpose.",
+      "If I do not enjoy it, then the effort means nothing and I miss out on life.",
+      "Wisdom suggests the importance of a devoted outlook."
+    ],
+    imageSrc: "assets/images/Pride by JFeelgood.jpg",
+    imageAlt: "Pride painting from the Self Work series by JFeelgood"
+  },
+  {
+    title: "Lush",
+    meta: "24\" × 30\" · Acrylic on canvas, epoxy resin",
+    body: [
+      "The cycle of bad habits entertained by vices in excess, cleverly disguised as an aide in helping, and their various laborious, taxing, withdrawal periods.",
+      "Without them, I am the blank canvas... open to new ideas, new feelings, a new me."
+    ],
+    imageSrc: "assets/images/Lush by JFeelgood.jpg",
+    imageAlt: "Lush painting from the Self Work series by JFeelgood"
+  },
+  {
+    title: "Businessman",
+    meta: "30\" × 40\" · Acrylic on canvas, wood panel, epoxy resin",
+    body: [
+      "Alignment solely with wealth building and material systems keeps my emotional and spiritual growth inhibited."
+    ],
+    imageSrc: "assets/images/Businessman by JFeelgood.jpg",
+    imageAlt: "Businessman painting from the Self Work series by JFeelgood"
+  },
+  {
+    title: "Best Friend",
+    meta: "30\" × 40\" · Acrylic on canvas, wood panel, epoxy resin",
+    body: [
+      "Always there.",
+      "In the shadows or in the spotlight. The monster thrives on fear and will put me in positions that make me afraid and vulnerable.",
+      "With patience, I face my fears as they present themselves.",
+      "Vulnerability is the precursor to authenticity. I grow bigger than my fears because I have them.",
+      "What feeds the monster, feeds me."
+    ],
+    imageSrc: "assets/images/Best Friend by JFeelgood.jpg",
+    imageAlt: "Best Friend painting from the Self Work series by JFeelgood"
+  },
+  {
+    title: "Vicarious",
+    meta: "29.5\" × 30.5\" · Acrylic on canvas, epoxy resin",
+    body: [
+      "Living in the throes of imagination, I am aged by experiences of a thousand lifetimes, at the cost of growing closer to real people."
+    ],
+    imageSrc: "assets/images/Vicarious by JFeelgood.jpg",
+    imageAlt: "Vicarious painting from the Self Work series by JFeelgood"
+  },
+  {
+    title: "Permission",
+    meta: "40\" × 30\" · Acrylic on canvas, epoxy resin",
+    body: [
+      "Brilliant and mighty power. Sometimes, I seek it from others long before I consider it coming from myself.",
+      "The burden of permission is great. Once I permit myself, I am then indebted to that permission.",
+      "Without discipline, it is nearly impossible to return to the respect for the weight of what has been permitted.",
+      "Familiarity is the greatest weakness of the evolving spirit and I long for it in all of my endeavors. Even in the unknown I find a familiar solace, a mirror of my imagination.",
+      "Am I mindful of what my actions are that people consider permission in their lives?",
+      "Am I mindful of the permissions I grant myself?"
+    ],
+    imageSrc: "assets/images/Permission by JFeelgood.jpg",
+    imageAlt: "Permission painting from the Self Work series by JFeelgood"
+  }
+];
+
 
     let selfWorkIndex = 0;
 
@@ -1123,8 +1144,9 @@
         bodyEl.appendChild(p);
       });
 
-      imgEl.textContent = "";
-      imgEl.appendChild(document.createTextNode(piece.imageText));
+      imgEl.src = piece.imageSrc;
+imgEl.alt = piece.imageAlt;
+
       indexEl.textContent = (selfWorkIndex + 1) + " / " + selfWorkPieces.length;
     }
 
