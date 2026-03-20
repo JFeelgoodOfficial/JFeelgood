@@ -233,6 +233,35 @@
   @media (max-width: 520px) {
     .archive-grid { column-count: 2; }
   }
+    .archive-text-block p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 42rem;
+  margin-bottom: 10px;
+}
+
+.archive-text-block p:last-child {
+  margin-bottom: 12px;
+}
+
+/* Soft colored shape behind the second paragraph */
+.archive-text-highlight {
+  position: relative;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text); /* slightly darker text on highlight */
+}
+
+.archive-text-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top left, #fbe8c6 0, #f4ddc1 45%, #f1d4b8 100%);
+  opacity: 0.9;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  z-index: -1;
+}
 </style>
 </head>
 <body>
@@ -250,16 +279,19 @@
       <div class="section-inner">
         <h1>Archives wall</h1>
         <div class="archive-title-main">2004 – 2020 in one breath.</div>
-        <p class="archive-sub">
-          
-  This 2004–2020 archive is the long view of my work – a wall of paintings from the years when I was mostly just trying not to sleepwalk through my own life. These are the experiments, detours, and small breakthroughs that led to Thought Entropy, Self Work, and The Book of Shadow Work.
-</p>
-<p>
-  You’ll see shifts in color, subject, and medium as I learned to translate questions about identity, family, grief, faith, and possibility into simple visual meditations. Early pieces sit beside later ones without hierarchy; it’s less a “greatest hits” and more a record of someone learning how to see, feel, and stay present.
-</p>
-<p>
-  Take this archive as an invitation to wander. Zoom out and let the whole mosaic hit you, or pause on whatever piece your attention circles back to. The story here isn’t just about an artist evolving – it’s about how a life, over time, keeps finding new ways to speak.
-</p>
+        <div class="archive-text-block">
+  <p>
+    This 2004–2020 archive is the long view of my work – a wall of paintings from the years when I was mostly just trying not to sleepwalk through my own life. These are the experiments, detours, and small breakthroughs that led to Thought Entropy, Self Work, and The Book of Shadow Work.
+  </p>
+
+  <p class="archive-text-highlight">
+    You’ll see shifts in color, subject, and medium as I learned to translate questions about identity, family, grief, faith, and possibility into simple visual meditations. Early pieces sit beside later ones without hierarchy; it’s less a “greatest hits” and more a record of someone learning how to see, feel, and stay present.
+  </p>
+
+  <p>
+    Take this archive as an invitation to wander. Zoom out and let the whole mosaic hit you, or pause on whatever piece your attention circles back to. The story here isn’t just about an artist evolving – it’s about how a life, over time, keeps finding new ways to speak.
+  </p>
+</div>
         <div class="archive-note">
           Scroll, zoom out, and let the whole wall hit you.
         </div>
