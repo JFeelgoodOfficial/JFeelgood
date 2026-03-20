@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Archives Wall – JFeelgood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An immersive wall of JFeelgood paintings from the archives – a visual timeline of nearly two decades of work.">
+  <style>
+    :root {
+      /* Use the same palette you chose on index.html */
+      --bg: #1f150f;
+      --bg-alt: #261a12;
+      --accent: #f3b15a;
+      --accent-soft: #f7d7a1;
+      --text: #fdf9f2;
+      --text-muted: #c9b7a3;
+      --border: #3a2718;
+      --card: #2b1c12;
+      --highlight: #7bc4e3;
+      --link: #7bc4e3;
+      --link-hover: #bfe4f5;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.55);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --max-width: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: radial-gradient(circle at top, #3a2718 0, #120b07 60%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    body {
+      padding: 24px 14px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+      color: var(--accent-soft);
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      font-size: 0.86rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      padding: 5px 9px;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      transition: background 0.18s ease-out, border-color 0.18s ease-out,
+        color 0.18s ease-out, transform 0.18s ease-out;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(243,177,90,0.3);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    section {
+      background: radial-gradient(circle at top left, #3c2818 0, #1a110a 55%);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at top right,
+          rgba(243,177,90,0.28) 0, transparent 55%),
+        radial-gradient(circle at bottom left,
+          rgba(123,196,227,0.16) 0, transparent 55%);
+      opacity: 0.9;
+    }
+
+    .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+
+    .archive-title-main {
+      font-size: clamp(1.5rem, 3.3vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .archive-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 42rem;
+      margin-bottom: 12px;
+    }
+
+    .archive-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .archive-grid {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 4px;
+    }
+
+    .archive-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      border: 1px solid rgba(253,249,242,0.08);
+      background: #120b07;
+    }
+
+    .archive-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4);
+      pointer-events: none;
+    }
+
+    .archive-img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 3; /* unified crop; change to 1/1 or 3/4 if you prefer */
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease-out, filter 0.3s ease-out;
+    }
+
+    .archive-item:hover .archive-img {
+      transform: scale(1.05);
+      filter: brightness(1.03);
+    }
+
+    .archive-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 20px 8px 32px; }
+      section { padding: 18px 15px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">JFEELGOOD</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#story">Story</a>
+        <a href="index.html#books">Books</a>
+      </nav>
+    </header>
+
+    <section>
+      <div class="section-inner">
+        <h1>Archives wall</h1>
+        <div class="archive-title-main">2004 – 2020 in one breath.</div>
+        <p class="archive-sub">
+          This is the long view – around 150 pieces from the years that led to Thought Entropy, Self Work, and The Book of Shadow Work. No captions, just a mosaic of seasons, experiments, and small revolutions in paint.
+        </p>
+        <div class="archive-note">
+          Scroll, zoom out, and let the whole wall hit you.
+        </div>
+
+        <div class="archive-grid" id="archive-grid">
+          <!-- Images will be inserted here by JavaScript -->
+        </div>
+
+        <p class="archive-count" id="archive-count"></p>
+      </div>
+    </section>
+
+    <footer>
+      <span>← Back to <a href="index.html">the main gallery</a></span>
+      <span>Follow on Instagram: <a href="https://www.instagram.com/artistjfeelgood" target="_blank" rel="noopener">@artistjfeelgood</a></span>
+    </footer>
+  </div>
+
+  <script>
+  // List your archive image filenames here (just the file names, not the full path)
+  const archiveImages = [
+    "Vicarious.png",
+    "best friend.png",
+    "businessman.png",
+    "colossal waste of time.jpg",
+    "crowned.png",
+    "dream mountain.jpg",
+    "pooh.png",
+    "sweet dreams.png",
+    "A Simple Meditation.jpg",
+    "Adventure Awaits.jpg",
+    "Affordable Housing.jpg",
+    "Chelsea Contemporary.jpg",
+    "Cornerstones.jpg",
+    "Gentrification.jpg",
+    "Grecia Monroc.jpg",
+    "Le Monarch.jpg",
+    "Liberty.jpg",
+    "Ronin.jpg",
+    "Sentiments.jpg",
+    "Supernova.jpg"
+  ];
+
+  const gridEl = document.getElementById('archive-grid');
+  const countEl = document.getElementById('archive-count');
+
+  archiveImages.forEach(name => {
+    const item = document.createElement('div');
+    item.className = 'archive-item';
+
+    const img = document.createElement('img');
+    img.className = 'archive-img';
+    img.src = 'assets/images/archives/' + name;
+    img.alt = name.replace(/[-_]/g, ' ');
+
+    item.appendChild(img);
+    gridEl.appendChild(item);
+  });
+
+  if (countEl) {
+    countEl.textContent = archiveImages.length
+      ? archiveImages.length + " works from the archives."
+      : "";
+  }
+</script>
+</body>
+</html>
