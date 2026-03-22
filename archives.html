@@ -337,12 +337,12 @@
 const archiveImages = [];
 const extensions = ['jpg', 'png'];   
 
-for (let i = 1; i <= 162; i++) {
-  const num = String(i).padStart(3, "0"); // 1 -> "001"
-  for (const ext of extensions) {
-    archiveImages.push(`JFeelgood painting ${num}.${ext}`);
-  }
+for (let i = 0; i < archiveImages.length; i++) {
+    const img = document.createElement('img');
+    img.src = archiveImages[i];   
+    
 }
+
     
   const gridEl = document.getElementById('archive-grid');
   const countEl = document.getElementById('archive-count');
