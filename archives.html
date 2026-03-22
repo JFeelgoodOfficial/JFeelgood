@@ -334,9 +334,14 @@
     "Sentiments.jpg",
     "Supernova.jpg"
   ];
+const archiveImages = [];
+const extensions = ['jpg', 'png'];   
+
 for (let i = 1; i <= 162; i++) {
   const num = String(i).padStart(3, "0"); // 1 -> "001"
-  archiveImages.push(`JFeelgood painting ${num}.jpg`);
+  for (const ext of extensions) {
+    archiveImages.push(`JFeelgood painting ${num}.${ext}`);
+  }
 }
     
   const gridEl = document.getElementById('archive-grid');
