@@ -310,10 +310,14 @@
     </footer>
   </div>
 
-  <script>
-  // List your archive image filenames here (just the file names, not the full path)
-  const archiveImages = [
-    "Vicarious.png",
+
+ 
+<!-- Put this in your HTML where you want the images to appear -->
+<div id="imageContainer"></div>
+
+<script>
+// 1️⃣ Build the array with both extensions
+const archiveImages = [ "Vicarious.png",
     "best friend.png",
     "businessman.png",
     "colossal waste of time.jpg",
@@ -332,62 +336,28 @@
     "Liberty.jpg",
     "Ronin.jpg",
     "Sentiments.jpg",
-    "Supernova.jpg"
-  ];
-// 1️⃣ Build the array with both extensions
-const archiveImages = [];
-const extensions = ['jpg', 'png'];          // <-- list the file types you want
+    "Supernova.jpg"];
+const extensions = ['jpg', 'png']; 
+     const archiveImages = [
+   
 
 for (let i = 1; i <= 162; i++) {
-  const num = String(i).padStart(3, "0"); // 1 → "001", 2 → "002", … 162 → "162"
+  const num = String(i).padStart(3, "0"); // 001, 002, … 162
   for (const ext of extensions) {
     archiveImages.push(`JFeelgood painting ${num}.${ext}`);
   }
 }
 
-// 2️⃣ Container where the images will appear (change the ID if needed)
+// 2️⃣ Get the container (must exist in the HTML)
 const container = document.getElementById('imageContainer');
-// If the element doesn't exist yet, you can create it:
-// const container = document.createElement('div');
-// container.id = 'imageContainer';
-// document.body.appendChild(container);
 
-// 3️⃣ Loop through the *entire* array and create an <img> for each entry
-archiveImages.forEach((src, index) => {
-  const img = new Image();          // create an Image object
-  img.src = src;                    // set its source to the current filename
-
-  // Optional: handle load / error so you can see what succeeded or failed
-  img.onload  = () => console.log(`✅ Loaded [${index + 1}/${archiveImages.length}]:`, src);
-  img.onerror = () => console.warn(`❌ Failed to load [${index + 1}/${archiveImages.length}]:`, src);
-
-  // Append the image to the page
+// 3️⃣ Create an <img> for every entry in the array and add it to the page
+archiveImages.forEach(src => {
+  const img = new Image();
+  img.src = src;
   container.appendChild(img);
 });
-
-
-    
-  const gridEl = document.getElementById('archive-grid');
-  const countEl = document.getElementById('archive-count');
-
-  archiveImages.forEach(name => {
-    const item = document.createElement('div');
-    item.className = 'archive-item';
-
-    const img = document.createElement('img');
-    img.className = 'archive-img';
-    img.src = 'assets/images/archives/' + name;
-    img.alt = name.replace(/[-_]/g, ' ');
-
-    item.appendChild(img);
-    gridEl.appendChild(item);
-  });
-
-  if (countEl) {
-    countEl.textContent = archiveImages.length
-      ? archiveImages.length + " works from the archives."
-      : "";
-  }
 </script>
+
 </body>
 </html>
