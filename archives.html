@@ -334,14 +334,37 @@
     "Sentiments.jpg",
     "Supernova.jpg"
   ];
+// 1️⃣ Build the array with both extensions
 const archiveImages = [];
-const extensions = ['jpg', 'png'];   
+const extensions = ['jpg', 'png'];          // <-- list the file types you want
 
-for (let i = 0; i < archiveImages.length; i++) {
-    const img = document.createElement('img');
-    img.src = archiveImages[i];   
-    
+for (let i = 1; i <= 162; i++) {
+  const num = String(i).padStart(3, "0"); // 1 → "001", 2 → "002", … 162 → "162"
+  for (const ext of extensions) {
+    archiveImages.push(`JFeelgood painting ${num}.${ext}`);
+  }
 }
+
+// 2️⃣ Container where the images will appear (change the ID if needed)
+const container = document.getElementById('imageContainer');
+// If the element doesn't exist yet, you can create it:
+// const container = document.createElement('div');
+// container.id = 'imageContainer';
+// document.body.appendChild(container);
+
+// 3️⃣ Loop through the *entire* array and create an <img> for each entry
+archiveImages.forEach((src, index) => {
+  const img = new Image();          // create an Image object
+  img.src = src;                    // set its source to the current filename
+
+  // Optional: handle load / error so you can see what succeeded or failed
+  img.onload  = () => console.log(`✅ Loaded [${index + 1}/${archiveImages.length}]:`, src);
+  img.onerror = () => console.warn(`❌ Failed to load [${index + 1}/${archiveImages.length}]:`, src);
+
+  // Append the image to the page
+  container.appendChild(img);
+});
+
 
     
   const gridEl = document.getElementById('archive-grid');
