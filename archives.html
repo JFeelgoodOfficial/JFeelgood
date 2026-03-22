@@ -319,7 +319,9 @@
 // ------------------------------------------------------------------
 // 1️⃣  Start with the explicit filenames you already have
 // ------------------------------------------------------------------
-const archiveImages = [
+
+  const basePath = 'assets/images/archives/';
+  const archiveImages = [
   "Vicarious.png",
   "best friend.png",
   "businessman.png",
@@ -364,7 +366,7 @@ const container = document.getElementById('imageContainer');
 // ------------------------------------------------------------------
 archiveImages.forEach(src => {
   const img = new Image();
-  img.src = src;          // <-- make sure the file is in the same folder as this HTML
+  img.src = basePath + src;          // <-- make sure the file is in the same folder as this HTML
   container.appendChild(img);
 });
 </script>
