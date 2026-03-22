@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Book of Shadow Work — J. Feelgood</title>
+  <meta name="description" content="A guided dream therapy workbook for artists and seekers. Find quiet, write without limits, face your inner world. By J. Feelgood." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    :root {
+      --bg:        #111112;
+      --bg-card:   #1a1a1c;
+      --bg-raised: #212124;
+      --border:    rgba(255,255,255,0.07);
+      --gold:      #c9a84c;
+      --gold-dim:  rgba(201,168,76,0.18);
+      --gold-glow: rgba(201,168,76,0.08);
+      --white:     #f0ede8;
+      --muted:     #8a8580;
+      --danger-dim:#1e1614;
+      --radius:    4px;
+      --max-w:     900px;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── GRAIN OVERLAY ─────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.6;
+    }
+
+    /* ── TYPOGRAPHY ─────────────────────────────────────────── */
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; line-height: 1.15; }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* ── LAYOUT ──────────────────────────────────────────────── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+
+    /* ── CTA BUTTON ─────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      border-radius: var(--radius);
+      min-height: 60px;
+      line-height: 1;
+      vertical-align: middle;
+    }
+    .btn:hover {
+      background: var(--gold);
+      color: #111;
+      box-shadow: 0 0 32px rgba(201,168,76,0.25);
+    }
+    .btn.btn-solid {
+      background: var(--gold);
+      color: #111112;
+    }
+    .btn.btn-solid:hover {
+      background: #dfc06a;
+      box-shadow: 0 0 40px rgba(201,168,76,0.35);
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────────────── */
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px auto;
+      opacity: 0.5;
+    }
+
+    /* ── FADE-IN ANIMATION ───────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .fade-up.d1 { transition-delay: 0.1s; }
+    .fade-up.d2 { transition-delay: 0.22s; }
+    .fade-up.d3 { transition-delay: 0.34s; }
+    .fade-up.d4 { transition-delay: 0.46s; }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(30,20,10,0.9) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(201,168,76,0.06) 0%, transparent 60%),
+        linear-gradient(180deg, #0c0b09 0%, #111112 40%, #0e0e0f 100%);
+      z-index: 0;
+    }
+
+    /* Ambient orbs */
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .hero-isbn {
+      font-size: 0.62rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    #hero h1 {
+      font-size: clamp(3rem, 10vw, 7.5rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.0;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    #hero h1 em {
+      font-style: italic;
+      color: rgba(240,237,232,0.75);
+      display: block;
+      font-size: 0.55em;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted);
+      max-width: 520px;
+      margin: 32px auto 48px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll svg {
+      animation: bounce 2.2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.4; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       WHAT IS TBOSW
+    ═══════════════════════════════════════════════════════════ */
+    #what {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 680px) {
+      .what-grid {
+        grid-template-columns: 200px 1fr;
+        gap: 64px;
+      }
+    }
+
+    .book-cover-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .book-cover {
+      width: 180px;
+      aspect-ratio: 6/9;
+      background: linear-gradient(145deg, #1e1b15, #2a2518);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 2px 6px 6px 2px;
+      box-shadow:
+        -4px 0 8px rgba(0,0,0,0.5),
+        4px 8px 32px rgba(0,0,0,0.6),
+        inset -2px 0 6px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .book-cover::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #3a3020, #c9a84c33, #3a3020);
+    }
+
+    .book-cover-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .book-cover-sub {
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .book-cover-author {
+      position: absolute;
+      bottom: 16px;
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      color: rgba(201,168,76,0.6);
+      letter-spacing: 0.1em;
+    }
+
+    .book-cover-ornament {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      margin: 10px auto;
+      opacity: 0.4;
+    }
+
+    #what h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    #what p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.85;
+      max-width: 520px;
+    }
+
+    #what p + p { margin-top: 16px; }
+
+    /* ═══════════════════════════════════════════════════════════
+       DREAM THERAPY METHOD — CAROUSEL
+    ═══════════════════════════════════════════════════════════ */
+    #method {
+      border-top: 1px solid var(--border);
+      padding: 80px 0;
+      overflow: hidden;
+    }
+
+    #method .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    #method h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    #method .section-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .steps-track-wrap {
+      position: relative;
+    }
+
+    .steps-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 24px 24px;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+
+    .steps-track::-webkit-scrollbar { display: none; }
+    .steps-track.grabbing { cursor: grabbing; }
+
+    .step-card {
+      flex: 0 0 min(300px, 80vw);
+      scroll-snap-align: start;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .step-card:hover { border-color: var(--gold-dim); }
+
+    .step-num {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 1;
+    }
+
+    .step-icon {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .step-card h3 {
+      font-size: 1.25rem;
+      color: var(--white);
+    }
+
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .step-card .step-cue {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(201,168,76,0.55);
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    /* Scroll indicators */
+    .steps-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .steps-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.3s, width 0.3s;
+      cursor: pointer;
+    }
+
+    .steps-dots span.active {
+      background: var(--gold);
+      width: 20px;
+      border-radius: 3px;
+    }
+
+    /* Desktop: larger cards */
+    @media (min-width: 860px) {
+      .step-card { flex: 0 0 280px; }
+      .steps-track { padding: 0 calc((100vw - 900px)/2 + 24px) 24px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CHARACTERS / ILLUSTRATIONS
+    ═══════════════════════════════════════════════════════════ */
+    #characters {
+      border-top: 1px solid var(--border);
+      padding: 80px 0;
+      overflow: hidden;
+    }
+
+    #characters .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    #characters h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    .chars-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 24px 24px;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+    .chars-track::-webkit-scrollbar { display: none; }
+    .chars-track.grabbing { cursor: grabbing; }
+
+    .char-card {
+      flex: 0 0 min(240px, 72vw);
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+
+    .char-card:hover { border-color: var(--gold-dim); }
+
+    .char-image {
+      aspect-ratio: 3/4;
+      background: var(--bg-raised);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Unique gradient per character via nth-child */
+    .char-card:nth-child(1) .char-image { background: linear-gradient(160deg, #181410, #2a2010); }
+    .char-card:nth-child(2) .char-image { background: linear-gradient(160deg, #10141a, #1a2030); }
+    .char-card:nth-child(3) .char-image { background: linear-gradient(160deg, #14181a, #202828); }
+    .char-card:nth-child(4) .char-image { background: linear-gradient(160deg, #18100e, #2c1a16); }
+    .char-card:nth-child(5) .char-image { background: linear-gradient(160deg, #141018, #201424); }
+    .char-card:nth-child(6) .char-image { background: linear-gradient(160deg, #101614, #141e1a); }
+
+    .char-image-symbol {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .char-image-symbol .symbol {
+      font-size: 3rem;
+      filter: grayscale(0.3);
+    }
+
+    .char-image-symbol .char-label {
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    .char-info {
+      background: var(--bg-card);
+      padding: 18px 18px 22px;
+      flex: 1;
+    }
+
+    .char-info h4 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .char-info .char-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+
+    .char-info p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SAMPLE PAGES
+    ═══════════════════════════════════════════════════════════ */
+    #samples {
+      border-top: 1px solid var(--border);
+      padding: 80px 0;
+    }
+
+    #samples .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    #samples h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    .samples-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 24px 24px;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+    .samples-track::-webkit-scrollbar { display: none; }
+    .samples-track.grabbing { cursor: grabbing; }
+
+    .sample-card {
+      flex: 0 0 min(300px, 80vw);
+      scroll-snap-align: start;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+    }
+
+    .sample-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+      border-color: var(--gold-dim);
+    }
+
+    .sample-preview {
+      aspect-ratio: 3/4;
+      background: var(--bg-raised);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sample-preview-inner {
+      padding: 24px;
+      font-family: var(--font-serif);
+      text-align: center;
+    }
+
+    .sample-preview-inner .s-title {
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .sample-preview-inner .s-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .sample-preview-inner .s-lines {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .sample-preview-inner .s-lines span {
+      height: 1px;
+      background: var(--border);
+      border-radius: 1px;
+    }
+
+    .sample-preview-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .sample-card:nth-child(1) .sample-preview-bg { background: linear-gradient(165deg, #0e0c09, #1e1a10); }
+    .sample-card:nth-child(2) .sample-preview-bg { background: linear-gradient(165deg, #0c0e10, #12181e); }
+    .sample-card:nth-child(3) .sample-preview-bg { background: linear-gradient(165deg, #100c0e, #1a1016); }
+
+    .sample-expand-icon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.4);
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .sample-card:hover .sample-expand-icon {
+      border-color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    .sample-caption {
+      padding: 16px 18px;
+      background: var(--bg-card);
+    }
+
+    .sample-caption h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .sample-caption p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-inner {
+      max-width: 500px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: rgba(0,0,0,0.5);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.2rem;
+      z-index: 2;
+      transition: border-color 0.2s;
+    }
+
+    .lightbox-close:hover { border-color: var(--gold); }
+
+    .lightbox-body {
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      font-family: var(--font-serif);
+      text-align: center;
+      position: relative;
+    }
+
+    .lightbox-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .lightbox-footer h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .lightbox-footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       DISCLAIMER
+    ═══════════════════════════════════════════════════════════ */
+    #disclaimer {
+      padding: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .disclaimer-box {
+      background: #14100e;
+      border-left: 2px solid rgba(201,168,76,0.3);
+      padding: 32px 28px;
+      border-radius: 0 4px 4px 0;
+      margin: 64px 0;
+    }
+
+    .disclaimer-box p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #6e6560;
+      line-height: 1.85;
+    }
+
+    .disclaimer-box p strong {
+      font-style: normal;
+      font-weight: 500;
+      color: #8a7e78;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       AUTHOR CLOSE
+    ═══════════════════════════════════════════════════════════ */
+    #close {
+      border-top: 1px solid var(--border);
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+
+    #close .author-note {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 20px;
+      line-height: 1.85;
+    }
+
+    #close .closing-line {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin: 40px 0 56px;
+      line-height: 1.1;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE TWEAKS
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 500px) {
+      section { padding: 64px 0; }
+      .btn { padding: 18px 28px; width: 100%; text-align: center; }
+      .disclaimer-box { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-isbn fade-up">ISBN 9798283598444 &nbsp;·&nbsp; J. Feelgood</p>
+      <h1 class="fade-up d1">
+        The Book of<br/>
+        <em>Shadow Work</em>
+      </h1>
+      <p class="hero-subtitle fade-up d2">
+        A guided dream therapy workbook for artists and seekers:<br/>
+        find quiet, write without limits, face your inner world.
+      </p>
+      <a
+        class="btn btn-solid fade-up d3"
+        href="https://a.co/d/00Z3mt2Q"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Get The Book of Shadow Work on Amazon"
+      >Get The Book of Shadow Work</a>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Scroll</span>
+      <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
+        <path d="M7 1v16M1 11l6 6 6-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       WHAT IS TBOSW
+  ═══════════════════════════════════════════════════════ -->
+  <section id="what">
+    <div class="container">
+      <div class="what-grid">
+
+        <div class="book-cover-wrap fade-up">
+          <div class="book-cover" aria-label="Book cover: The Book of Shadow Work">
+            <div class="book-cover-title">The Book of<br/>Shadow Work</div>
+            <div class="book-cover-ornament"></div>
+            <div class="book-cover-sub">An Artist's Lyrical Journey<br/>Through Fear, Ego<br/>and Acceptance.</div>
+            <div class="book-cover-author">J. Feelgood</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow fade-up">What is TBOSW?</p>
+          <div class="divider fade-up d1" style="margin:14px 0 20px;"></div>
+          <h2 class="fade-up d1">A place where<br/>truth is safe.</h2>
+          <p class="fade-up d2" style="margin-top:20px;">
+            TBOSW blends a lyrical symbolic story with a practical dream therapy writing method. It is for anyone ready to sit quietly, invite their inner voice, and write unfiltered — to explore fear, ego, and self-acceptance.
+          </p>
+          <p class="fade-up d2">
+            Born from five years of personal work, it meets you where you are most human: uncertain, searching, aware that truth often speaks in whispers.
+          </p>
+          <p class="fade-up d3">
+            This is not for those who want quick resolutions. It is for the overthinkers, the ruminators, the ones who smile automatically and cry quietly in bathrooms. It is for artists, parents, dreamers, skeptics — anyone who senses there is more to uncover beneath their practiced story.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       DREAM THERAPY METHOD
+  ═══════════════════════════════════════════════════════ -->
+  <section id="method">
+    <div class="section-header container">
+      <p class="eyebrow fade-up">The Practice</p>
+      <div class="divider fade-up d1"></div>
+      <h2 class="fade-up d1">Writing as Dream Therapy</h2>
+      <p class="fade-up d2">Seven steps to let your subconscious speak freely — as characters, as story, as truth.</p>
+    </div>
+
+    <div class="steps-track-wrap">
+      <div class="steps-track" id="stepsTrack" role="list">
+
+        <article class="step-card" role="listitem">
+          <div class="step-num">01</div>
+          <div class="step-icon">🕯️</div>
+          <h3>Find the Quiet</h3>
+          <p>Go somewhere still, where you can be alone with your thoughts. Silence is ideal; if you need sound, pick something ambient and unintrusive. Close your eyes. Breathe. Wait. Listen.</p>
+          <p class="step-cue">"What do you hear when you sit in the quiet?"</p>
+        </article>
+
+        <article class="step-card" role="listitem">
+          <div class="step-num">02</div>
+          <div class="step-icon">🪞</div>
+          <h3>Invite the Other You</h3>
+          <p>Imagine you are not alone. There is another version of you waiting nearby — one who wants to speak, but only if they know they will be heard. Your job is not to interrogate. Just listen.</p>
+          <p class="step-cue">"Write the first thing they say, even if it seems strange."</p>
+        </article>
+
+        <article class="step-card" role="listitem">
+          <div class="step-num">03</div>
+          <div class="step-icon">🌊</div>
+          <h3>Let Them Tell Their Story</h3>
+          <p>Do not direct the conversation. Do not control the story. Simply let them speak — let images appear, let the dream form on the page as if it is happening on its own. If you are tempted to stop, don't.</p>
+          <p class="step-cue">"Where are we? What do you want me to see?"</p>
+        </article>
+
+        <article class="step-card" role="listitem">
+          <div class="step-num">04</div>
+          <div class="step-icon">🚪</div>
+          <h3>Follow the Path</h3>
+          <p>You may feel tempted to stop, redirect, or rationalize — don't. Keep following the words as if you are walking through a dream. Even if it feels disjointed or surreal, let it be what it is.</p>
+          <p class="step-cue">"Where is the story going? What do you feel as it unfolds?"</p>
+        </article>
+
+        <article class="step-card" role="listitem">
+          <div class="step-num">05</div>
+          <div class="step-icon">🌒</div>
+          <h3>The Closing Moment</h3>
+          <p>You do not force an ending — you wait for it to arrive. A shift will happen. A pause. A moment where the dialogue or imagery naturally slows down. That is when you know it is time to stop.</p>
+          <p class="step-cue">"The last sentence of the dream arrives on its own."</p>
+        </article>
+
+        <article class="step-card" role="listitem">
+          <div class="step-num">06</div>
+          <div class="step-icon">📖</div>
+          <h3>Read, But Do Not Change</h3>
+          <p>Step away for a few minutes, then return and read what you wrote without editing. Some parts may feel like nonsense — trust that they mean something. Underline what stands out. Do not erase.</p>
+          <p class="step-cue">"Honor what was said, even if it makes no sense yet."</p>
+        </article>
+
+        <article class="step-card" role="listitem">
+          <div class="step-num">07</div>
+          <div class="step-icon">✦</div>
+          <h3>Let It Sit, Let It Live</h3>
+          <p>This process is not always meant to be understood immediately. You may return days, weeks, or months later — and only then will it make sense. If it feels overwhelming, close the notebook and breathe.</p>
+          <p class="step-cue">"If this dream had a title, what would it be?"</p>
+        </article>
+
+      </div>
+
+      <div class="steps-dots" id="stepsDots" aria-hidden="true">
+        <span class="active"></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CHARACTERS / ILLUSTRATIONS
+  ═══════════════════════════════════════════════════════ -->
+  <section id="characters">
+    <div class="section-header container">
+      <p class="eyebrow fade-up">Inside the Story</p>
+      <div class="divider fade-up d1"></div>
+      <h2 class="fade-up d1">Characters &amp; Symbolism</h2>
+      <p class="fade-up d2">Each figure in the book is a facet of the self — your past, present, and future voices made visible.</p>
+    </div>
+
+    <div class="chars-track" id="charsTrack" role="list">
+
+      <article class="char-card" role="listitem">
+        <div class="char-image">
+          <div class="char-image-symbol">
+            <span class="symbol">🧒</span>
+            <span class="char-label">The Boy</span>
+          </div>
+        </div>
+        <div class="char-info">
+          <div class="char-role">The Fragmented Self</div>
+          <h4>The Boy</h4>
+          <p>Symbolizes innocence and the journey toward self-understanding. He is the child self that still seeks approval and love — hesitant but deeply curious, questioning reality and the nature of fear.</p>
+        </div>
+      </article>
+
+      <article class="char-card" role="listitem">
+        <div class="char-image">
+          <div class="char-image-symbol">
+            <span class="symbol">🎭</span>
+            <span class="char-label">Cloaked Figure</span>
+          </div>
+        </div>
+        <div class="char-info">
+          <div class="char-role">The Guarded Adult Self</div>
+          <h4>The Cloaked Figure</h4>
+          <p>Fear of change. Resistance to vulnerability. Always present but distant, never fully engaging. His blue mask represents emotional detachment — at times a protector, at times an obstacle.</p>
+        </div>
+      </article>
+
+      <article class="char-card" role="listitem">
+        <div class="char-image">
+          <div class="char-image-symbol">
+            <span class="symbol">🪬</span>
+            <span class="char-label">The Lady in White</span>
+          </div>
+        </div>
+        <div class="char-info">
+          <div class="char-role">Stillness &amp; Grace</div>
+          <h4>The Lady in White</h4>
+          <p>Unconditional peace and presence. She does not push, pull, or demand — she simply exists. The flower she gives and receives is a symbol of quiet acknowledgment and kindness.</p>
+        </div>
+      </article>
+
+      <article class="char-card" role="listitem">
+        <div class="char-image">
+          <div class="char-image-symbol">
+            <span class="symbol">⚡</span>
+            <span class="char-label">The Girl</span>
+          </div>
+        </div>
+        <div class="char-info">
+          <div class="char-role">Action &amp; Instinct</div>
+          <h4>The Girl</h4>
+          <p>The force of action, crashing into the boy's world, grabbing his wrist, forcing him to move instead of staying frozen in hesitation. She doesn't wait for permission — she runs, pulls, demands change.</p>
+        </div>
+      </article>
+
+      <article class="char-card" role="listitem">
+        <div class="char-image">
+          <div class="char-image-symbol">
+            <span class="symbol">🌑</span>
+            <span class="char-label">The Monster</span>
+          </div>
+        </div>
+        <div class="char-info">
+          <div class="char-role">Unacknowledged Fear</div>
+          <h4>The Monster</h4>
+          <p>Never fully seen, only sensed — because it is not a singular thing. It is everything the boy fears but refuses to name. At the end, he realizes the monster is his own unacknowledged self.</p>
+        </div>
+      </article>
+
+      <article class="char-card" role="listitem">
+        <div class="char-image">
+          <div class="char-image-symbol">
+            <span class="symbol">⚔️</span>
+            <span class="char-label">The Warrior</span>
+          </div>
+        </div>
+        <div class="char-info">
+          <div class="char-role">The Battle with the Self</div>
+          <h4>The Warrior</h4>
+          <p>The burden of mastery and the hunger for purpose. He knows only his craft — and in that knowing he is both fulfilled and trapped. "Artists are never happy. They are only high sometimes."</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="steps-dots" id="charsDots" aria-hidden="true">
+      <span class="active"></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SAMPLE PAGES
+  ═══════════════════════════════════════════════════════ -->
+  <section id="samples">
+    <div class="section-header container">
+      <p class="eyebrow fade-up">A Glimpse Inside</p>
+      <div class="divider fade-up d1"></div>
+      <h2 class="fade-up d1">Sample Pages</h2>
+      <p class="fade-up d2">Tap any page to expand. Three sections — the story, the analysis, the method.</p>
+    </div>
+
+    <div class="samples-track" id="samplesTrack" role="list">
+
+      <article class="sample-card" role="listitem" data-sample="0" tabindex="0">
+        <div class="sample-preview">
+          <div class="sample-preview-bg"></div>
+          <div class="sample-preview-inner">
+            <div class="s-title">The Book of<br/>Shadow Work</div>
+            <div style="width:30px;height:1px;background:var(--gold);margin:12px auto;opacity:0.4;"></div>
+            <div class="s-text">An Artist's Lyrical Journey Through Fear, Ego and Acceptance.</div>
+            <div class="s-lines">
+              <span style="width:60%;"></span>
+              <span style="width:40%;"></span>
+            </div>
+            <div style="margin-top:20px;font-size:0.65rem;letter-spacing:0.12em;color:var(--gold);opacity:0.5;">J. FEELGOOD</div>
+          </div>
+        </div>
+        <div class="sample-expand-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M1 1h4M1 1v4M11 11H7M11 11V7M11 1H7M11 1v4M1 11h4M1 11V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="sample-caption">
+          <h4>The Cover</h4>
+          <p>Elegant and unguarded — an invitation to begin.</p>
+        </div>
+      </article>
+
+      <article class="sample-card" role="listitem" data-sample="1" tabindex="0">
+        <div class="sample-preview">
+          <div class="sample-preview-bg"></div>
+          <div class="sample-preview-inner">
+            <div style="font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);opacity:0.5;text-transform:uppercase;margin-bottom:16px;">Revelation</div>
+            <div class="s-text">
+              "Let's step into the room of nothing.<br/><br/>
+               Just us. No one else.<br/><br/>
+               A problem presents itself…"
+            </div>
+            <div class="s-lines" style="margin-top:20px;">
+              <span style="width:70%;"></span>
+              <span style="width:50%;"></span>
+              <span style="width:60%;"></span>
+            </div>
+          </div>
+        </div>
+        <div class="sample-expand-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M1 1h4M1 1v4M11 11H7M11 11V7M11 1H7M11 1v4M1 11h4M1 11V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="sample-caption">
+          <h4>Inside the Story</h4>
+          <p>The lyrical journey begins — the round room, the palace of ego.</p>
+        </div>
+      </article>
+
+      <article class="sample-card" role="listitem" data-sample="2" tabindex="0">
+        <div class="sample-preview">
+          <div class="sample-preview-bg"></div>
+          <div class="sample-preview-inner">
+            <div style="font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);opacity:0.5;text-transform:uppercase;margin-bottom:16px;">Workbook Prompt</div>
+            <div class="s-text" style="text-align:left;">
+              Reflection Prompt:<br/><br/>
+              <span style="color:var(--muted);">What mask do you wear in your daily life?<br/><br/>
+              Is there a version of yourself you are afraid to let go of?</span>
+            </div>
+            <div style="margin-top:20px;border-top:1px solid var(--border);padding-top:16px;font-size:0.7rem;color:var(--muted);">Use this space as your Imagination Room…</div>
+            <div class="s-lines" style="margin-top:12px;">
+              <span style="width:90%;"></span>
+              <span style="width:90%;"></span>
+              <span style="width:90%;"></span>
+            </div>
+          </div>
+        </div>
+        <div class="sample-expand-icon" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M1 1h4M1 1v4M11 11H7M11 11V7M11 1H7M11 1v4M1 11h4M1 11V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="sample-caption">
+          <h4>The Workbook</h4>
+          <p>Reflection prompts and open space to write your own truth.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       DISCLAIMER
+  ═══════════════════════════════════════════════════════ -->
+  <section id="disclaimer" aria-label="Important note">
+    <div class="container">
+      <div class="disclaimer-box fade-up">
+        <p>
+          <strong>Important Note</strong>
+          This workbook is for reflective self-work and is best used alongside a therapist or counselor. It is not a substitute for clinical therapy. Healing is complex and deeply individual. Please seek the guidance of a qualified therapist, whether you use this book in tandem or not.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       AUTHOR CLOSE
+  ═══════════════════════════════════════════════════════ -->
+  <section id="close">
+    <div class="container">
+
+      <p class="eyebrow fade-up">From the Author</p>
+      <div class="divider fade-up d1"></div>
+
+      <p class="author-note fade-up d2">
+        "I began writing this book to address something I'd carried for most of my life.
+        By doing so, I was able to know myself in a way that nothing else had brought clarity before.
+        Facing yourself is hard. It takes time. This book took five years.
+        I wrote this so I could breathe. And now, I can."
+      </p>
+
+      <p class="author-note fade-up d3" style="margin-top:10px;font-style:normal;color:#5a5550;">
+        — J. Feelgood
+      </p>
+
+      <div class="closing-line fade-up d4">
+        You are loved.
+      </div>
+
+      <div class="fade-up d4">
+        <a
+          class="btn btn-solid"
+          href="https://a.co/d/00Z3mt2Q"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get The Book of Shadow Work on Amazon"
+        >Get The Book of Shadow Work</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <span>© J. Feelgood 2025</span>
+    <a href="https://jfeelgood.com" target="_blank" rel="noopener">← Back to jfeelgood.com</a>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LIGHTBOX
+  ═══════════════════════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Sample page preview">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">✕</button>
+      <div class="lightbox-body" id="lightboxBody"></div>
+      <div class="lightbox-footer" id="lightboxFooter"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════════ -->
+  <script>
+    /* ── SCROLL FADE-IN ───────────────────────────────── */
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(el => observer.observe(el));
+
+    /* ── DRAG-SCROLL CAROUSELS ────────────────────────── */
+    function makeDraggable(track, dotsEl) {
+      let isDown = false, startX, scrollLeft;
+
+      track.addEventListener('mousedown', e => {
+        isDown = true; track.classList.add('grabbing');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+      track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
+      track.addEventListener('mouseup',    () => { isDown = false; track.classList.remove('grabbing'); });
+      track.addEventListener('mousemove',  e => {
+        if (!isDown) return;
+        e.preventDefault();
+        track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX) * 1.4;
+      });
+
+      if (dotsEl) {
+        const dots = dotsEl.querySelectorAll('span');
+        const cards = track.children;
+        track.addEventListener('scroll', () => {
+          const idx = Math.round(track.scrollLeft / (cards[0]?.offsetWidth + 16 || 1));
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }, { passive: true });
+        dots.forEach((d, i) => d.addEventListener('click', () => {
+          track.scrollTo({ left: i * ((cards[0]?.offsetWidth || 300) + 16), behavior: 'smooth' });
+        }));
+      }
+    }
+
+    makeDraggable(document.getElementById('stepsTrack'), document.getElementById('stepsDots'));
+    makeDraggable(document.getElementById('charsTrack'), document.getElementById('charsDots'));
+    makeDraggable(document.getElementById('samplesTrack'), null);
+
+    /* ── LIGHTBOX ─────────────────────────────────────── */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxBody = document.getElementById('lightboxBody');
+    const lightboxFooter = document.getElementById('lightboxFooter');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    const sampleData = [
+      {
+        title: 'The Cover',
+        caption: 'A restrained, lyrical invitation — nothing superfluous, everything intentional.',
+        bodyHTML: `
+          <div style="font-family:var(--font-serif);text-align:center;width:100%;">
+            <div style="font-size:1.5rem;color:var(--gold);line-height:1.3;margin-bottom:10px;">The Book of<br/>Shadow Work</div>
+            <div style="width:40px;height:1px;background:var(--gold);margin:14px auto;opacity:0.4;"></div>
+            <div style="font-size:0.8rem;color:var(--muted);font-style:italic;line-height:1.8;">An Artist's Lyrical Journey<br/>Through Fear, Ego and Acceptance.</div>
+            <div style="margin-top:30px;font-size:0.7rem;letter-spacing:0.15em;color:var(--gold);opacity:0.6;">J. FEELGOOD</div>
+          </div>`,
+        bgGrad: 'linear-gradient(165deg, #0e0c09, #1e1a10)'
+      },
+      {
+        title: 'Inside the Story — The Revelation',
+        caption: 'The lyrical story unfolds through dialogue between the self and itself.',
+        bodyHTML: `
+          <div style="font-family:var(--font-serif);max-width:340px;text-align:left;">
+            <div style="font-size:0.6rem;letter-spacing:0.22em;color:var(--gold);opacity:0.5;text-transform:uppercase;margin-bottom:20px;">~Revelation~</div>
+            <p style="font-size:1rem;color:var(--white);line-height:1.9;font-style:italic;">"Let's step into the room of nothing.<br/><br/>Just us. No one else.<br/><br/>A problem presents itself.<br/><br/>A quiet pause, punctuated by a small, absent-minded sip of a drink, as I sense my gaze adrift, lost in thought."</p>
+          </div>`,
+        bgGrad: 'linear-gradient(165deg, #0c0e10, #12181e)'
+      },
+      {
+        title: 'The Workbook — Reflection Prompt',
+        caption: 'Open, guided space to write without limits.',
+        bodyHTML: `
+          <div style="font-family:var(--font-serif);max-width:340px;width:100%;text-align:left;">
+            <div style="font-size:0.6rem;letter-spacing:0.22em;color:var(--gold);opacity:0.5;text-transform:uppercase;margin-bottom:16px;">Reflection Prompt</div>
+            <p style="font-size:1rem;color:var(--white);line-height:1.9;">What mask do you wear in your daily life?</p>
+            <p style="font-size:0.9rem;color:var(--muted);line-height:1.85;margin-top:12px;">Is there a version of yourself you are afraid to let go of?</p>
+            <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:18px;font-size:0.75rem;color:var(--muted);font-style:italic;">Use this space as your Imagination Room…</div>
+            <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+              <span style="height:1px;background:var(--border);display:block;width:100%;"></span>
+              <span style="height:1px;background:var(--border);display:block;width:100%;"></span>
+              <span style="height:1px;background:var(--border);display:block;width:100%;"></span>
+            </div>
+          </div>`,
+        bgGrad: 'linear-gradient(165deg, #100c0e, #1a1016)'
+      }
+    ];
+
+    document.querySelectorAll('.sample-card').forEach(card => {
+      const open = () => {
+        const idx = parseInt(card.dataset.sample);
+        const d = sampleData[idx];
+        lightboxBody.style.background = d.bgGrad;
+        lightboxBody.innerHTML = d.bodyHTML;
+        lightboxFooter.innerHTML = `<h3>${d.title}</h3><p>${d.caption}</p>`;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        lightboxClose.focus();
+      };
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>
