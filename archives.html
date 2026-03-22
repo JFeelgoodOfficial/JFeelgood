@@ -312,34 +312,40 @@
 
 
  
-<!-- Put this in your HTML where you want the images to appear -->
+<!-- Put this where you want the images to appear -->
 <div id="imageContainer"></div>
 
 <script>
-// 1️⃣ Build the array with both extensions
-const archiveImages = [ "Vicarious.png",
-    "best friend.png",
-    "businessman.png",
-    "colossal waste of time.jpg",
-    "crowned.png",
-    "dream mountain.jpg",
-    "pooh.png",
-    "sweet dreams.png",
-    "A Simple Meditation.jpg",
-    "Adventure Awaits.jpg",
-    "Affordable Housing.jpg",
-    "Chelsea Contemporary.jpg",
-    "Cornerstones.jpg",
-    "Gentrification.jpg",
-    "Grecia Monroc.jpg",
-    "Le Monarch.jpg",
-    "Liberty.jpg",
-    "Ronin.jpg",
-    "Sentiments.jpg",
-    "Supernova.jpg"];
-const extensions = ['jpg', 'png']; 
-     
-   
+// ------------------------------------------------------------------
+// 1️⃣  Start with the explicit filenames you already have
+// ------------------------------------------------------------------
+const archiveImages = [
+  "Vicarious.png",
+  "best friend.png",
+  "businessman.png",
+  "colossal waste of time.jpg",
+  "crowned.png",
+  "dream mountain.jpg",
+  "pooh.png",
+  "sweet dreams.png",
+  "A Simple Meditation.jpg",
+  "Adventure Awaits.jpg",
+  "Affordable Housing.jpg",
+  "Chelsea Contemporary.jpg",
+  "Cornerstones.jpg",
+  "Gentrification.jpg",
+  "Grecia Monroc.jpg",
+  "Le Monarch.jpg",
+  "Liberty.jpg",
+  "Ronin.jpg",
+  "Sentiments.jpg",
+  "Supernova.jpg"
+];
+
+// ------------------------------------------------------------------
+// 2️⃣  Add the generated JFeelgood painting xxx.jpg/png files
+// ------------------------------------------------------------------
+const extensions = ['jpg', 'png'];          // file types you want
 
 for (let i = 1; i <= 162; i++) {
   const num = String(i).padStart(3, "0"); // 001, 002, … 162
@@ -348,16 +354,21 @@ for (let i = 1; i <= 162; i++) {
   }
 }
 
-// 2️⃣ Get the container (must exist in the HTML)
+// ------------------------------------------------------------------
+// 3️⃣  Grab the container (must exist in the HTML)
+// ------------------------------------------------------------------
 const container = document.getElementById('imageContainer');
 
-// 3️⃣ Create an <img> for every entry in the array and add it to the page
+// ------------------------------------------------------------------
+// 4️⃣  Create an <img> for every filename and add it to the page
+// ------------------------------------------------------------------
 archiveImages.forEach(src => {
   const img = new Image();
-  img.src = src;
+  img.src = src;          // <-- make sure the file is in the same folder as this HTML
   container.appendChild(img);
 });
 </script>
+
 
 </body>
 </html>
